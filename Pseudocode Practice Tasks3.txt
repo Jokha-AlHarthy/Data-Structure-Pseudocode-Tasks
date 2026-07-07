@@ -154,3 +154,80 @@ START
 	
 	END
 STOP
+------------------------------------------------------------------------------
+Category 14: Value-Driven Indeterminate Whiles
+
+Task 59:
+
+START
+	BEGIN
+		DISPLAY "Enter the phone charge capacity:"
+		READ BATTERY_LIFE
+		REPEAT WHILE BATTERY_LIFE GREATER THAN 0
+			DISPLAY "Enter the application type used: "
+			READ APP_TYPE
+			IF APP_TYPE EQUALS "VIDEO" THEN
+				SET BATTERY_LIFE = BATTERY_LIFE - 15
+			ELSE IF APP_TYPE EQUALS "TEXT" THEN
+				SET BATTERY_LIFE = BATTERY_LIFE - 5
+			END IF
+			DISPLAY "The remaining capacity percentage: " + BATTERY_LIFE
+		END REPEAT
+	
+
+	END
+STOP
+
+Task 60:
+
+START
+	BEGIN
+		DISPLAY "Enter the workout training objective: "
+		READ TARGET_DISTANCE
+		SET TOTAL_RUN TO 0
+		REPEAT WHILE TOTAL_RUN LESS THAN TARGET_DISTANCE
+			READ LAP_DISTANCE
+			SET TOTAL_RUN = TOTAL_RUN + LAP_DISTANCE
+			DISPLAY TARGET_DISTANCE = TARGET_DISTANCE + LAP_DISTANCE
+		END REPEAT
+		DISPLAY "The remaining distance left to hit the session milestone" + TOTAL_RUN
+	END
+STOP
+
+Task 61:
+
+START
+	BEGIN
+		SET FLUID_VOLUME TO 500
+		REPEAT WHILE FLUID_VOLUME GREATER THAN 50
+			DISPLAY "The drain rate: "
+			READ DRAIN_RATE
+			IF FLUID_VOLUME - DRAIN_RATE LESS THAN 50 THEN
+				DISPLAY "Drain Blocked - Safety Threshold Violation"
+			ELSE
+				SET FLUID_VOLUME = FLUID_VOLUME - DRAIN_RATE
+				DISPLAY "The fluid volume is:"+ FLUID_VOLUME
+			END IF
+		END REPEAT
+	
+	END
+STOP
+
+
+Task 62:
+
+START
+	BEGIN
+		SET PLAYER_HP TO 100
+		SET SHIELD_ENERGY TO 50
+		REPEAT WHILE PLAYER_HP GREATER THAN 0
+			DISPLAY "Enter the incoming attack damage value:"
+			READ ENEMY_HIT
+			IF SHIELD_ENERGY GREATER THAN 0 THEN
+				SHIELD_ENERGY =  SHIELD_ENERGY - ENEMY_HIT
+			ELSE IF SHIELD_ENERGY EQUALS 0 THEN
+				SHIELD_ENERGY =  SHIELD_ENERGY - PLAYER_HP
+			END IF
+		END REPEAT
+	END
+STOP
