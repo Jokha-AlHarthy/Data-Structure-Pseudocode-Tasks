@@ -297,3 +297,173 @@ START
 	
 	END
 STOP
+----------------------------------------------------------------------------------------
+Category 11: Ultimate Master Challenges
+
+Task 42:
+START
+	BEGIN
+		DISPLAY "Enter traveler's flight miles: "
+		READ FLIGHT_MILES
+		DISPLAY "Enter traveler's bag weight: "
+		READ BAG_WEIGHT
+		IF FLIGHT_MILES GREATER THAN 50000 THEN
+			SET TIER = "PLATINUM"
+			DISPLAY " Your bag weight is up to 40 without fees"
+		ELSE IF FLIGHT_MILES GREATER THAN 20000 AND LESS THAN THEN
+			SET TIER = "GOLD"
+			DISPLAY "Your bag weight is up to 25"
+		ELSE
+			DISPLAY "Charge Excess Baggage Fee"
+		END IF
+	END
+STOP
+
+Task 43:
+START
+	BEGIN
+		SET POS_X = 0
+		SET POS_Y = 0
+  		REPEAT FROM I=0 TO 5
+   			DISPLAY "What direction you want to move to UP, DOWN, LEFT, or RIGHT? "
+   			READ MOVEMENT
+			IF MOVEMENT EQUALS RIGHT THEN
+				SET POS_Y = POS_X + 1
+			ELSE IF MOVEMENT EQUALS LEFT THEN
+				SET POS_Y = POS_X -1
+			ELSE IF MOVEMENT EQUALS UP THEN
+				SET POS_Y = POS_Y + 1
+			ELSE IF MOVEMENT EQUALS DOWN THEN
+				SET POS_Y = POS_Y - 1
+			END IF
+			DISPLAY "the coordinates is: X=  " + POS_X  "and , Y= " +POS_Y
+		END REPEAT
+	END
+STOP
+
+Task 44:
+START
+	BEGIN
+		DISPLAY "Enter the generation output: "
+		READ GENERATION_OUTPUT
+		DISPLAY "Enter the consumption demand: "
+		READ CONSUMPTION_DEMAND
+		DISPLAY "Enter the battery reserve: "
+		READ BATTERY_RESERVE
+		IF GENERATION_OUTPUT GREATER THAN CONSUMPTION_DEMAND THEN
+			SET SURPLUS = GENERATION_OUTPUT - CONSUMPTION_DEMAND
+			SET BATTERY_RESERVE = BATTERY_RESERVE + SURPLUS
+		ELSE IF  GENERATION_OUTPUT LESS THAN CONSUMPTION_DEMAND THEN
+			SET DEFICIT = CONSUMPTION_DEMAND - GENERATION_OUTPUT
+			SET BATTERY_RESERVE = BATTERY_RESERVE - DEFICIT
+		ELSE IF BATTERY_RESERVE LESS THAN 0 THEN
+			DISPLAY "Grid Blackout Warning!
+		END IF
+	END
+STOP
+
+Task 45:
+START
+	BEGIN
+		DISPLAY  "Enter the working hours: "
+		READ HOURS_WORKED
+		DISPLAY "Enter the pay rate per hour: "
+		READ PAY_RATE
+		IF HOURS_WORKED LESS THAN OR EQUAL TO 40 THEN
+			SET GROSS_PAY = HOURS_WORKED * PAY_RATE
+		ELSE IF  HOURS_WORKED GREATER THAN 40 THEN
+			SET GROSS_PAY = 40 * PAY_RATE  + (1.5 * PAY_RATE)
+		END IF
+			SET NET_PAY = GROSS_PAY - (GROSS_PAY * 0.15)
+			DISPLAY "The final net pay is: "+  NET_PAY
+	END
+STOP
+
+Task 46:
+START
+	BEGIN
+		SET TOTAL_ATTENDANCE = 0
+		SET HALF_BONUS_SENT = FALSE
+		REPEAT WHILE TOTAL_ATTENDANCE LESS THAN 30
+			DIPSPLAY "Enter your weekly visit:"
+			READ WEEKLY_VISITS
+			ADD TOTAL_ATTENDANCE = TOTAL_ATTENDANCE + WEEKLY_VISITS
+			IF TOTAL_ATTENDANCE GREATER THAN OR EQUAL TO 15 AND HALF_BONUS_SENT IS FALSE
+				DISPLAY "Halfway Reward Unlocked!"
+				SET  HALF_BONUS_SENT TO TRUE
+			END IF
+		END REPEAT
+	
+	END
+STOP
+
+Task 47:
+START
+	BEGIN
+		DISPLAY "Enter monthly income: "
+		READ MONTHLY_INCOME
+		DISPLAY "Enter existing dept: "
+		READ EXISTING_DEBT
+		DISPLAY "Enter employment length in months: "
+		READ EMPLOYMENT_LENGTH
+		IF MONTHLY_INCOME GREATER THAN 4000 AND EXISTING_DEBT LESS THAN 1500 AND EMPLOYMENT_LENGTH GREATER THAN 12 THEN
+			DISPLAY "Loan Pre-Approved"
+		ELSE
+			DISPLAY "Manual Underwriting Required"
+		END IF
+	END
+STOP
+
+
+Task 48:
+START
+	BEGIN
+		REPEATE FROM I = 1 TO 4
+   			DISPLAY "Enter percent change  (e.g., 0.10 for a 10% gain, or -0.05 for a 5%  drop): "
+  			SET  STOCK_PRICE =  STOCK_PRICE + (STOCK_PRICE * PERCENT_CHANGE)
+  			DISPLAY "the running value per quarter is: "+ STOCK_PRICE
+		END REPEAT
+	END
+STOP
+
+
+Task 49:
+START
+	BEGIN
+		DISPLAY "Enter your gift card voucher: "
+		READ VOUCHER_BAL
+		REPEATE WHILE VOUCHER_BAL GREATER THAN 0
+			DISPLAY "Enter the price of the digital book: "
+			READ BOOK_PRICE
+			If BOOK_PRICE LESS THAN OR EQUAL TO  THEN
+				SET BOOK_PRICE = VOUCHER_BAL- BOOK_PRICE
+				DISPLAY "Book Purchased"
+			ELSE IF BOOK_PRICE GREATER THAN VOUCHER_BAL
+				DISPLAY "Insufficient Voucher Balance - Transaction Blocked"
+				SET VOUCHER_BAL TO 0
+			END IF
+		END REPEATE
+	END
+STOP
+
+Task 50:
+START
+	BEGIN
+		DISPLAY "Enter the Length of the cargo package's dimensions: "
+		READ LENGTH
+		DISPLAY "Enter the WIDTH of the cargo package's dimensions: "
+		READ WIDTH
+		DISPLAY "Enter the HEIGHT of the cargo package's dimensions: "
+		READ HEIGHT
+		SET VOLUME = LENGTH * WIDTH *  HEIGHT
+		DISPLAY "Enter the physical weight: "
+		READ WEIGHT
+		IF  VOLUME GREATER THAN 1000 OR WEIGHT GREATER THAN 50 THEN
+			SET SHPPING =  (VOLUME * 0.50) + (WEIGHT * 2.00)
+		ELSE
+			SET SHPPING =25
+		END IF
+			DISPLAY SHPPING
+	
+	END
+STOP
