@@ -1,0 +1,77 @@
+Category 12: Advanced Flag Systems & Resource Tracking
+
+Task 51:
+
+START
+	BEGIN
+		DISPLAY "Enter the soil moisture (number): "
+		READ SOIL_MOISTURE
+		DISPLAY "Enter the rain prediction as YES or NO: "
+		READ RAIN_PREDICTION
+		IF SOIL_MOISTURE LESS THAN 30 AND RAIN_PREDICTION EQUALS "NO THEN
+			DISPLAY "Activate Zone 1 and Zone 2 Sprinklers"
+		ELSE IF SOIL_MOISTURE LESS THAN 30 AND RAIN_PREDICTION EQUALS "YES" THEN
+			DISPLAY "Delay Watering - Rain Expected"
+		ELSE
+			DISPLAY "System Idle"
+		END IF
+	END
+STOP
+
+Task 52:
+
+START
+	BEGIN
+		SET COOLING_PUMPS TO "NORMAL"
+		DISPLAY "Enter the core temperature:"
+		READ CORE_TEMPERATURE
+		DISPLAY "Enter humidity level: "
+		READ HUMIDITY_LEVEL
+		IF CORE_TEMPERATURE GREATER THAN 85 OR HUMIDITY_LEVEL GREATER THAN 70 THEN
+			SET COOLING_PUMPS TO "MAXIMUM"
+			IF COOLING_PUMPS EQUALS "MAXIMUM" THEN
+				DISPLAY "Overclocking Disabled - Cooling Engaged"
+			END IF
+		END IF
+	END
+STOP
+
+
+Task 53:
+
+START
+	BEGIN
+		DISPLAY "Enter the days since the password changed: "
+		READ DAYS_SINCE_PASSWORD_CHANGE
+		DISPLAY "Enter the security clearance as HIGH or STANDARD : "
+		READ SECURITY_CLEARANCE
+		IF SECURITY_CLEARANCE EQUALS "HIGH" AND DAYS_SINCE_PASSWORD_CHANGE GREATER THAN 30 THEN
+			DISPLAY "Password Expired - Force Reset"
+		ELSE IF SECURITY_CLEARANCE EQUALS "STANDARD" AND DAYS_SINCE_PASSWORD_CHANGE GREATER THAN 90 THEN
+			DISPLAY "Password Expired - Force Reset"
+		ELSE
+			DISPLAY "Password not Expired"
+		END IF
+	END
+STOP
+
+Task 54:
+
+START
+	BEGIN
+		SET TOTAL_BANDWIDTH TO 100
+		DISPLAY "Enter streaming load: "
+		READ STREAMING_LOAD
+		DISPLAY "Enter gaming load: "
+		READ GAMING_LOAD
+		DISPLAY "Enter priority mode: "
+		READ PRIORITY_MODE
+		IF STREAMING_LOAD + GAMING_LOAD GREATER THAN TOTAL_BANDWIDTH THEN
+			IF PRIORITY_MODE EQUALS "GAMING" THEN
+				DISPLAY "Throttle Streaming Load"
+			ELSE
+				DISPLAY "Throttle Gaming Load"
+			END IF
+		END IF
+	END
+STOP
