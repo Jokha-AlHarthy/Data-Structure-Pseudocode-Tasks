@@ -1,0 +1,51 @@
+Category 1: Basic Input/Output & Variables
+
+
+TASK 1:
+START
+	BEGIN
+		DISPLAY "Enter your favorite color"
+		READ COLOR
+		DISPLAY "Your favorite color is" + COLOR
+	END
+STOP
+
+
+
+
+TASK 2:
+START
+	BEGIN
+		DIAPLY "Enter first number"
+		READ No1
+		DISPLAY "Enter second number"
+		READ No2
+		SET Sum = No1 + No2
+		DISAPLY "Total sum of the numbers are: " + Sum
+	END
+STOP
+
+
+
+TASK 3:
+START
+ 	BEGIN
+  		DISPLAY "Enter radius of a circler"
+  		READ Radius
+  		SET Perimeter = 2 * 3.14159 * Radius
+		DISPLAY "Perimeter of the circle = "+ Perimeter
+	END
+STOP
+
+
+TASK 4:
+START
+	BEGIN
+		DIAPLY "Enter number of days: "
+		READ Days
+		SET Hours = Days * 24
+		DISPLAY "The total hours are: " + Hours
+	END
+STOP
+
+----------------------------------------------------------
