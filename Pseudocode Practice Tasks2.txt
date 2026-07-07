@@ -155,3 +155,69 @@ START
 	
 	END
 STOP
+----------------------------------------------------------------------------
+Category 9: Controlled Variable Indeterminate Loops
+
+Task 34:
+START
+	BEGIN
+		DISPLAY "Enter the qauntity of a material: "
+		READ MASS
+		DISPLAY "Enter the safe thresold level:"
+		READ SAFE_LIMIT
+		REPEAT WHILE MASS GREATER THAN SAFE_LIMIT
+			SET MASS TO / 2
+			DISPLAY "The current deacy leveli is: + MASS
+		END REPEAT
+	END
+STOP
+
+Task 35:
+START
+	BEGIN
+		DISPLAY "Enter the account amount balance: "
+		READ CREDIT_BALANCE
+		DISPLAY "Enter your subscription amount: "
+		READ SUBSCRIPTION_COST
+		REPEAT WHILE CREDIT_BALANCE GREATER THAN OR EQUAL TO SUBSCRIPTION_COST
+			SET CREDIT_BALANCE = CREDIT_BALANCE - SUBSCRIPTION_COST
+			DISPLAY "The remaining credit is: + CREDIT_BALANCE
+			IF CREDIT_BALANCE LESS THAN OR EQUALS TO SUBSCRIPTION_COST THEN
+				DISPLAY "The balance can no longer sustain another full month"
+			END IF
+		END REPEAT
+	END
+STOP
+
+Task 36:
+START
+	BEGIN
+		SET MULTIPLIER = 1
+		REPEATE WHILE START_BASE LESS THAN 5000
+			SET START_BASE =  START_BASE  * MULTIPLIER
+			SET MULTIPLIER = MULTIPLIER + 1
+ 
+ 		END REPEAT
+		DISPLAY "Final value is: "+ START_BASE
+		DISPLAY " The number of steps: " + (MULTIPLIER -1)
+	END
+STOP
+
+Task 37:
+START
+	BEGIN
+		SET MAX_WEIGHT_CAPACITY = 10000
+  		SET CURRENT_WEIGHT = 0
+		REPEAT WHILE CURRENT_WEIGHT LESS THAN MAX_WEIGHT_CAPACITY
+ 			DISPLAY "Enter incoming crate's crate weight: "
+			READ CRATE_WEIGHT
+			IF CURRENT_WEIGHT + CRATE_WEIGHT LESS THAN OR EQUAL 10000 THEN
+ 				SET CURRENT_WEIGHT = CURRENT_WEIGHT + CRATE_WEIGHT
+			ELSE
+ 				DISPLAY  "Crate Rejected - Overweight Risk"
+ 
+ 			END IF
+ 
+ 		END REPEAT
+	END
+STOP
