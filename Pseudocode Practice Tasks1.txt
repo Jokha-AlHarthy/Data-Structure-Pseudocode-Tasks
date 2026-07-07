@@ -48,4 +48,76 @@ START
 	END
 STOP
 
-----------------------------------------------------------
+----------------------------------------------------------------------------
+Category 2: Conditions & Comparisons
+
+Task 5:
+START
+	BEGIN
+		DIAPLY "Enter your Age: "
+		IF Age GREATER THAN OR EQUAL 18 THEN
+			DISPLAY "Allowed"
+		ELSE
+			DISPLAY "Not Allowed"
+		END IF
+	END
+STOP
+
+Task 6:
+START
+	BEGIN
+		DISPLAY "Enter a number: "
+		READ VAL
+		IF VAL GREATER THAN 0 THEN
+			DISPLAY "Positive"
+		ELSE IF VAL LESS THAN 0 THEN
+			DISPLAY "Negative"
+		ELSE
+			DISPLAY "Zero"
+		END IF
+	END
+STOP
+
+Task 7:
+START
+	BEGIN
+		DIAPLY "Enter the speed of the vehicle: "
+		IF Age GREATER THAN 120 THEN
+			DISPLAY "Slow Down"
+		ELSE
+			DISPLAY "Safe Speed"
+		END IF
+	END
+STOP
+
+Task 8:
+START
+	BEGIN
+		DIAPLY "Enter the cost price: "
+		READ COST_PRICE
+		DISPLAY "Enter the second selling price: "
+		READ SELLING_PRICE
+		IF SELLING_PRICE GREATER THAN COST_PRICE THEN
+			DISPLAY "Profit"
+		ELSE
+			DISPLAY "Loss"
+		END IF
+	END
+STOP
+
+
+Task 9:
+START
+	BEGIN
+		DIAPLY "Enter the first number: "
+		READ Num1
+		DISPLAY "Enter the second number: "
+		READ Num2
+		IF Num1 EQUALS Num2 THEN
+			DISPLAY "Match"
+		ELSE
+			DISPLAY "No Match"
+		END IF
+	END
+STOP
+-------------------------------------------------------------------------------
