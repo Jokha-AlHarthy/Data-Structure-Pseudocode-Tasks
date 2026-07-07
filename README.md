@@ -6,17 +6,17 @@ The tasks cover a variety of programming concepts, including:
 
 
 
-\* Variables and calculations
+* Variables and calculations
 
-\* Input and output
+* Input and output
 
-\* Conditional statements (`IF`, `ELSE IF`, `ELSE`)
+* Conditional statements (`IF`, `ELSE IF`, `ELSE`)
 
-\* Fixed and conditional loops
+* Fixed and conditional loops
 
-\* Nested conditions
+* Nested conditions
 
-\* Real-world problem-solving scenarios
+* Real-world problem-solving scenarios
 
 
 
