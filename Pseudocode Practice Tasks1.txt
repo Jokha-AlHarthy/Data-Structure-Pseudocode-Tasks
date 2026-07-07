@@ -303,3 +303,62 @@ START
 	
 	END
 STOP
+-----------------------------------------------------------------------------------
+Category 6: Comprehensive Challenges
+
+Task 23:
+START
+	BEGIN
+  		SET Total = 0
+  		SET AVG = 0
+  		DISPLAY “How many numbers do you want to add"
+  		READ  Number
+		REPEAT WHILE Number GREATER THAN 0
+ 			DISPLAY “Enter any number"
+			READ num
+			SET Total = Total + num
+ 			SET Number = Number  - 1
+  		END REPEAT
+  		SET AVG = Total / N
+  		DISPLAY AVG
+	END
+STOP
+ 
+Task 24:
+START
+	BEGIN
+  		SET Number = 42
+  		SET Guess = 0
+  		DISPLAY “How many numbers do you want to add: "
+  		READ  Number
+		REPEAT WHILE Guess NOT EQUAL Number
+ 			DISPLAY “Guess the secret number: "
+			READ Guess
+			IF Guess GREATER THAN Number THEN
+				DISPLAY "The number you have enter is grater than Number"
+			ELSE IF GUESS LESS THAN Number
+				DISPLAY "The number you have enter is less than Number"
+			END IF
+		END REPEAT
+	END
+STOP
+
+
+Task 25:
+START
+	BEGIN
+		SET BMI= 0
+		DISPLAY "Enter your weight: "
+		READ Weight
+		DISPLAY "Enter your height: "
+		READ  Height
+		SET BMI =  Weight ÷ (Height*Height)
+		IF BMI LESS THAN 18.5 THEN
+			DISPLAY "Underweight"
+		ELSE IF BMI GREATER THAN 18.5 AND LESS THAN 24.9 THEN
+			DISPLAY "Normal"
+		ELSE
+			DISPLAY "Overweight"
+		END IF
+	END
+STOP
