@@ -322,3 +322,166 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------------------------
+Category 16: Comprehensive Capstone Problem Sets
+
+Task 67:
+
+START
+	BEGIN
+		DISPLAY "Enter the booking party headcount size: "
+		READ GUEST_COUNT
+		DISPLAY "Enter the interior zone option section as OUTDOOR or INDOOR"
+		READ SECTION
+		IF GUEST_COUNT GREATER THAN 8 THEN
+			DISPLAY "Assign Grand Banquet Table"
+		ELSE IF GUEST_COUNT LESS THAN OR EQUAL TO 8 THEN
+			IF SECTION EQUALS "OUTDOOR" THEN
+				DISPLAY "Assign Terrace Patio Table"
+			ELSE 
+				DISPLAY "Assign Standard Dining Booth"
+			END IF
+		END IF
+	
+	END
+STOP
+
+Task 68:
+
+START
+	BEGIN
+		SET PENDING_ORDERS TO 40
+		REPEAT WHILE PENDING_ORDERS GREATER THAN 0
+			DISPLAY "Enter the day's dispatch processing volume: "
+			READ TRUCK_CAPACITY
+			IF TRUCK_CAPACITY LESS THAN OR EQUAL TO PENDING_ORDERS THEN
+				SET PENDING_ORDERS = PENDING_ORDERS - TRUCK_CAPACITY
+			ELSE IF TRUCK_CAPACITY GREATER THAN PENDING_ORDERS THEN
+				SET PENDING_ORDERS TO 0
+			END IF
+		END REPEAT
+	END
+STOP
+
+Task 69:
+
+START
+	BEGIN
+		DISPLAY "Enter the account type as BUSINESS or HOME: "
+		READ ACCOUNT_TYPE
+		DISPLAY "Enter the baseline: "
+		READ POWER_CONSUMPTION
+		IF ACCOUNT_TYPE EQUALS "BUSINESS" AND POWER_CONSUMPTION GREATER THAN 5000 THEN
+			SET BILL = POWER_CONSUMPTION * 0.08
+		ELSE 
+			SET BILL = POWER_CONSUMPTION * 0.12
+		END IF
+		DISPLAY "The final calculated amount: " + BILL
+	END
+STOP
+
+Task 70:
+
+START
+	BEGIN
+		DISPLAY "Enter employee expense request file:"
+		READ AMOUNT
+		DISPLAY "Enter the spending department code: "
+		READ DEPT
+		IF AMOUNT LESS THAN OR EQUAL TO 500 THEN
+			DISPLAY "Auto-Approved by System Block"
+		ELSE IF AMOUNT GREATER THAN 500 THEN
+			IF DEPT EQUALS "MARKETING"
+				DISPLAY "Requires Marketing Director Verification"
+			ELSE
+				DISPLAY "Requires Engineering Operations Verification"
+			END IF
+		END IF
+	END
+STOP
+
+Task 71:
+
+START
+	BEGIN
+		SET FUEL_RESERVE TO 1000
+		REPEAT WHILE FUEL_RESERVE GREATER THAN 100
+			DISPLAY "Enter the dispense quantity: "
+			READ DISPENSE_QTY
+			SET FUEL_RESERVE = FUEL_RESERVE - DISPENSE_QTY
+			IF FUEL_RESERVE LESS THAN OR EQUAL TO 250	
+				DISPLAY "The remaining volume is less than the amount needed"
+			END IF 
+		END REPEAT
+
+	END
+STOP
+
+Task 72:
+
+START
+	BEGIN
+		DISPLAY "Enter the target input:"			
+		READ ALTITUDE_METERS
+		REPEAT WHILE ALTITUDE_METERS LESS THAN 10000
+			SET ALTITUDE_METERS = ALTITUDE_METERS + 1000
+			SET DENSITY = 100 - (ALTITUDE_METERS / 100)
+			DISPLAY DENSITY
+		END REPEAT
+	END
+STOP
+
+Task 73:
+
+START
+	BEGIN
+		DISPLAY "Enter the total itemized balance: "
+		READ CART_TOTAL
+		DISPLAY "Enter the coupon validation: "
+		READ COUPON_CODE
+		IF COUPON_CODE EQUALS "SAVE50" AND CART_TOTAL GREATER THAN 100 THEN
+			SET CART_TOTAL = CART_TOTAL - 50
+		ELSE IF COUPON_CODE EQUALS "SAVE10" THEN
+			SET CART_TOTAL = CART_TOTAL - 10
+		END IF
+		DISPLAY "The calculated price is: " + CART_TOTAL 
+	END
+STOP
+
+Task 74:
+
+START
+	BEGIN
+		DISPLAY "Enter the commercial vehicle's total travel distance: "
+		READ ROUTE_MILES 
+		DISPLAY "Enter the cargo payload: "
+		READ LOAD_WEIGHT
+		IF LOAD_WEIGHT GREATER THAN 15000 THEN
+			SET ESTIMATED_FUEL = ROUTE_MILES / 5
+		ELSE IF LOAD_WEIGHT LESS THAN OR EQUAL TO 15000 THEN
+			SET ESTIMATED_FUEL = ROUTE_MILES / 8
+		END IF 
+		DISPLAY ESTIMATED_FUEL 
+	END
+STOP
+
+Task 75:
+
+START
+	BEGIN
+		DISPLAY "Enter math grade: "
+		READ MATH
+		DISPLAY "Enter science grade: "
+		READ SCIENCE
+		DISPLAY "Enter English grade: "
+		READ ENGLISH
+		DISPLAY "Enter history grade: "
+		READ HISTORY
+		SET INDEX = (MATH*0.35) + (SCIENCE*0.35) + (ENGLISH*0.15) + (HISTORY*0.15) 
+		IF  INDEX GREATER THAN OR EQUAL TO 90 THEN
+			DISPLAY "Dean's List Placement"
+		ELSE 
+			DISPLAY "Standard Academic Standing"
+		END IF
+	END
+STOP
