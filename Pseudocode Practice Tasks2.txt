@@ -221,3 +221,79 @@ START
  		END REPEAT
 	END
 STOP
+-----------------------------------------------------------------------------------------
+Category 10: Multi-Branch Financial & Sorting Engines
+
+Task 38:
+START
+	BEGIN
+		DISPLAY  "Enter  property's final sale price: "
+		READ SALE_PRICE
+		IF SALE_PRICE LESS THAN OR EQUAL TO 100000 THEN
+			SET COMMISSION  =  SALE_PRICE *0.05
+		ELSE IF SALE_PRICE GREATER THAN 100000 AND SALE_PRICE LESS THAN OR EQUAL TO 500000 THEN
+			SET COMMISSION  =  5000 + ((SALE_PRICE - 100000) * 0.03)
+		ELSE
+			SET COMMISSION  = 17000 + ((SALE_PRICE - 500000) * 0.02)
+		END IF
+	END
+STOP
+
+Task 39:
+START
+	BEGIN
+		DISPLAY "Enter variable A: "
+		READ A
+		DISPLAY "Enter variable B: "
+		READ B
+		DISPLAY "Enter variable C: "
+		READ C
+		IF A LESS THAN B AND B LESS THAN C THEN
+			DISPLAY "Perfect Order"
+		ELSE
+			DISPLAY "Out of Order"
+		END I
+	
+	END
+STOP
+
+
+Task 40:
+START
+	BEGIN
+		DISPLAY "Enter standard base trip fare: "
+		READ FARE
+		DISPLAY "Enter traffic level as HIGH or NORMAL: "
+		READ TRAFFIC_LEVEL
+		DISPLAY "Enter driver availability as LOW or HIGH: "
+		READ DRIVER_AVAILABILITY
+		IF TRAFFIC_LEVEL EQUALS "HIGH" AND DRIVER_AVAILABILITY EQUALS "LOW" THEN
+			SET FINAL_PRICE = FARE * 2.0
+		IF TRAFFIC_LEVEL EQUALS "HIGH" AND DRIVER_AVAILABILITY EQUALS "LOW" THEN
+			SET FINAL_PRICE = FARE * 1.5
+		ELSE
+			SET FINAL_PRICE = FARE
+		END IF
+	END
+STOP
+
+Task 41:
+START
+	BEGIN
+		SET BASE_PRICE = 150
+		SET TOTAL_PRICE = 0
+		DISPLAY  "Enter how many rooms do you want? "
+		READ ROOM_COUNT
+		DISPLAY  "Choose the season PEAK or OFF: "
+		READ SEASON
+		IF SEASON EQUALS "OFF" THEN
+			PRICE = BASE_PRICE - (BASE_PRICE * 0.2)
+			TOTAL_PRICE =  PRICE * ROOM_COUNT
+		ELSE IF ROOM_COUNT GREATER THAN 5 THEN
+			PRICE = PRICE - (PRICE  * 0.1)
+			TOTAL_PRICE =  PRICE * ROOM_COUNT
+		END IF
+		DISPLAY  "Final invoice total is:" + TOTAL_PRICE
+	
+	END
+STOP
