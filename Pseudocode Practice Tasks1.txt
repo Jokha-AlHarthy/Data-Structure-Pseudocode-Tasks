@@ -121,3 +121,77 @@ START
 	END
 STOP
 -------------------------------------------------------------------------------
+Category 3: Logical Connectors & Nested Conditions
+
+Task 10:
+START
+	BEGIN
+		DIAPLY "Enter the student that has attendance: "
+		READ HAS_ATTENDANCE
+		DISPLAY "Enter the student that has assignment: "
+		READ HAS_ASSIGNMENT
+		IF  HAS_ATTENDANCE EQUALS "YES" AND HAS_ASSIGNMENT EQUALS "YES" THEN
+			DISPLAY "Exam Allowed"
+		ELSE
+			DISPLAY "Exam Barred"
+		END IF
+	END
+STOP
+
+Task 11:
+START
+	BEGIN
+		DIAPLY "Enter the student's GPA: "
+		READ GPA
+		DISPLAY "Enter the student's family income: "
+		READ Income
+		IF GPA GREATER THAN OR EQUAL TO 3.5 OR Income LESS THAN 20000 THEN
+			DISPLAY "Scholarship Approved""
+		ELSE
+			DISPLAY "Scholarship Denied"
+		END IF
+	END
+STOP
+
+Task 12:
+START
+	BEGIN
+		DIAPLY "Enter the number of the item: "
+		READ NoItems
+		IF NoItems GREATER THAN OR EQUAL TO 0 AND NoItems LESS THAN OR EQUAL TO 100 THEN
+			DISPLAY "Valid Score"
+		ELSE
+			DISPLAY "Invalid Score"
+		END IF
+	END
+STOP
+
+Task 13:
+START
+	BEGIN
+		DIAPLY "Enter your age: "
+		READ AGE
+		IF AGE LESS THAN 12 TEHN
+			DISPLAY "Child Ticket"
+		ELSE
+			IF AGE GREATER THAN 12 AND LESS THAN 60 THEN
+				DISPLAY "Adult Ticket"
+			ELSE
+				DISPLAY "Senior Ticket"
+			END IF
+		END IF
+	END
+STOP
+
+Task 14:
+START
+	BEGIN
+		DIAPLY "Enter the first number: "
+		READ IS_SYSTEM_BROKEN
+		IF IS_SYSTEM_BROKEN NOT EQUALS TURE THEN
+			DISPLAY "Your system works well"
+		ELSE
+			DISPLAY "Your system has a problem"
+		END IF
+	END
+STOP
