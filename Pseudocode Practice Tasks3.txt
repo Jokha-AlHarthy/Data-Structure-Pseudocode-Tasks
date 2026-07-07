@@ -231,3 +231,94 @@ START
 		END REPEAT
 	END
 STOP
+------------------------------------------------------------------------------
+Category 15: Nested Multi-Branch Operational Trees
+
+Task 63:
+
+START
+	BEGIN
+		DISPLAY "Enter the weight of the bag's physical: "
+		READ WEIGHT
+		DISPLAY "Enter the dimension size of the bag's physical: "
+		READ DIMENSION
+		DIMENSION size
+		IF WEIGHT GREATER THAN 23 AND DIMENSION GREATER THAN 158 THEN
+			DISPLAY "Surcharge Fee: 150"
+		ELSE IF WEIGHT GREATER THAN 23 AND DIMENSION LESS THAN OR EQUAL TO 158
+			DISPLAY "Surcharge Fee: 50"
+		ELSE
+			DISPLAY "No Extra Surcharge Fee Applied"
+		END IF
+	END
+
+Task 64:
+
+START
+	BEGIN
+		DISPLAY "Enter the land's unit as COMMERCIAL, RESIDENTIAL, or AGRICULTURAL: "
+		READ ZONE
+		DISPLAY " Enter the market valuation: "
+		READ VALUATION
+		IF ZONE EQUALS "COMMERCIAL" THEN
+			SET VALUATION = VALUATION * 0.04
+		ELSE IF ZONE EQUALS "RESIDENTIAL"
+			IF VALUATION GREATER THAN 300000 THEN
+				SET VALUATION = VALUATION * 0.02
+			ELSE
+				SET VALUATION = VALUATION * 0.01
+			END IF
+		ELSE IF ZONE EQUALS "AGRICULTURAL" THEN
+			SET VALUATION = VALUATION * 0.005
+		END IF
+	END
+STOP
+
+Task 65:
+
+START
+	BEGIN
+		DISPLAY "Enter the the ticket type as VIP or STANDARD: "
+		READ TICKET_TYPE
+		DIPLSAY "Enter the combo size as LARGE or REGULAR: "
+		READ COMBO_SIZE
+		IF TICKET_TYPE EQUALS "VIP" ”THEN
+			IF COMBO_SIZE  EQUALS "REGULAR" THEN
+				SET PRICE EQUALS 10
+			ELSE
+				SET PRICE EQUALS 5
+			END IF
+		ELSE IF TICKET_TYPE EQUALS "STANDARD " THEN
+			IF COMBO_SIZE  EQUALS "REGULAR" THEN
+				SET PRICE EQUALS 15
+			ELSE
+				SET PRICE EQUALS 12
+			END IF
+		END IF
+		DISPLAY PRICE
+  	END
+STOP
+
+Task 66:
+
+START
+	BEGIN
+		DISPLAY "Enter the driver's age: "
+		READ AGE
+		DISPLAY "Enter the historical accident: "
+		READ ACCIDENT_COUNT
+		IF AGE LESS THAN 25 THEN
+			IF  ACCIDENT_COUNT GREATER THAN 0 THEN
+				DISPLAY "High Risk Premium Plan"
+			ELSE
+ 				DISPLAY "Medium Risk Premium Plan"
+			END IF
+		ELSE IF AGE GREATER THAN OR EQUAL TO 25 THEN
+			IF ACCIDENT_COUNT GREATER THAN 2 THEN
+				DISPLAY "High Risk Premium Plan"
+			ELSE
+				DISPLAY "Standard Premium Plan"
+			END IF
+		END IF
+	END
+STOP
