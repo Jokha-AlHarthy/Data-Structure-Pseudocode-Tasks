@@ -70,4 +70,88 @@ START
 		END IF
 	END
 STOP
+----------------------------------------------------------------------------
+Category 8: Advanced Aggregations & Math Filters
 
+Task 30:
+START
+	BEGIN
+		SET TOTAL_SCORE TO 0
+		SET VALID_COUNT TO 0
+		REPEAT FROM I=1 TO 5
+			DISPLAY "Enter your score: "
+			READ SCORE
+			IF SCORE GREATER THAN OR EQUAL TO 0 AND SCORE LESS THAN OR EQUAL TO 100 THEN
+				SET TOTAL_SCORE = TOTAL_SCORE + SCORE
+				SET VALID_COUNT = VALID_COUNT + 1
+			END IF
+		END REPEAT
+		SET AVERAGE = TOTAL_SCORE /  VALID_COUNT
+		DISPLAY "The Average Score Is: " + AVERAGE
+	END
+STOP
+
+Task 31:
+START
+	BEGIN
+		SET num = 0
+		SET MIN_VAL = 0
+		SET MAX_VAL =0
+		REPEAT WHILE num NOT EQUALS -999
+			DISPLAY "Enter a number: "
+			READ num
+			IF num GREATER THAN MAX_VAL THEN
+				SET MAX_VAL = num
+			ELSE IF num LESS THAN MAX_VAL AND LESS THAN MIN_VAL
+				SET MIN_VAL = num
+			END IF
+			DISPLAY "The maximum value: " + MAX_VAL
+			DISPLAY "The minimum value: " + MIN_VAL
+		END REPEAT
+	END
+STOP
+
+Task 32:
+START
+	BEGIN
+		SET NoSavingInYears= 0
+  		DISPLAY "Enter principal savings balance"
+		READ PRINCIPAL
+		DISPLAY "Enter annual interest rate (e.g., 0.05)"
+		READ INTEREST_RATE
+		DISPLAY "Enter final target amount"
+		READ TARGET_AMOUNT
+   		REPEAT WHILE PRINCIPAL LESS THAN TARGET_AMOUNT
+ 			SET  PRINCIPAL =  PRINCIPAL + (PRINCIPAL * INTEREST_RATE)
+			SET NoSavingInYears  =  NoSavingInYears +1
+		END REPEAT
+		DISPLAY "Number of years to get to the target:" + NoSavingInYears
+	END
+STOP
+
+Task 33:
+START
+	BEGIN
+  		SET TotalTax = 0
+		SET Counter = 1
+		REPEAT WHILE Counter LESS THAN 4
+			DISPLAY "Enter base price: "
+			READ BASE_PRICE
+			DISPLAY "Enter item type (FOOD, ELECTRONICS, or CLOTHING)"
+			READ ITEM_TYPE
+			IF ITEM_TYPE EQUALS "ELECTRONICS" THEN
+				SET TAX = BASE_PRICE * 0.18
+			ELSE
+				IF ITEM_TYPE EQUALS "CLOTHING" THEN
+					SET TAX = BASE_PRICE * 0.05
+				ELSE
+					SET TAX = 0
+				END IF
+			END IF
+			SET TotalTax = TotalTax + TAX
+			SET Counter = Counter + 1
+		END REPEAT
+		DISPLAY "Total tax of all items is: " + TotalTax
+	
+	END
+STOP
