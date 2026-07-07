@@ -195,3 +195,52 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------------------------------
+Category 4: Fixed Repetition (Loops)
+
+Task 15:
+START
+	BEGIN
+		REPEAT FROM I = 1 TO 10
+			DISPLAY I
+		END REPEAT
+	END
+STOP
+
+
+Task 16:
+START
+	BEGIN
+		REPEAT FROM I = 1 TO 10
+			SQUARE EQUALS I * I
+			DISPLAY I, SQUARE
+		END REPEAT
+	END
+STOP
+
+
+
+Task 17:
+START
+	BEGIN
+		SET x = 100
+		REPEAT FROM I = 1 TO 10
+			DISPLAY x
+			SET x = x-5
+		END REPEAT
+	END
+STOP
+
+
+Task 18:
+START
+	BEGIN
+		SET TOTAL = 0
+		REPEAT FROM I = 1 TO 5
+			DISPLAY "Enter your score"
+ 			READ SCORE
+			SET TOTAL = TOTAL + SCORE
+			DISPLAY TOTAL
+		END REPEAT
+	END
+STOP
