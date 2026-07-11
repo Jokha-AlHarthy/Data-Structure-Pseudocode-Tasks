@@ -1,0 +1,13 @@
+Task 136: Password Strength Checker
+
+START
+	BEGIN
+		DISPLAY "Enter your password: "
+		READ password
+		IF LENGTH OF password LESS THAN 8 TEHN
+			DISPLAY "Weak"
+		ELSE
+			DISPLAY "Strong"
+		END IF
+	END
+STOP
