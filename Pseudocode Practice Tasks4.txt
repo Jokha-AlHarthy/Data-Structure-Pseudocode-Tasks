@@ -25,4 +25,18 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 138: Extract Substring
 
+START
+	BEGIN
+		DISPLAY "Enter a word that contain at least 7 characters"
+		READ sentence
+		IF LENGTH OF sentence LESS THAN 7 THEN
+			DIPLSAY "String too short"
+		ELSE 
+			SET word TO sentence FROM INDEX 3 TO 7
+			DISPLAY word
+		END IF
+	END
+STOP
