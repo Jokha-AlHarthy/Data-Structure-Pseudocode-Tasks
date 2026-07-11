@@ -54,3 +54,17 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 140: File Extension Validator
+
+START
+	BEGIN
+		DISPLAY "Enter the file name: "
+		READ filename
+		IF filename ENDS WITH ".pdf" THEN
+			DIPLSAY "PDF document"
+		ELSE 
+			DISPLAY "Not a PDF"
+		END IF
+	END
+STOP
