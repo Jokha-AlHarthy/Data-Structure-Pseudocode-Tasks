@@ -302,3 +302,26 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 155: Check if String is All Uppercase
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET hasLowerCase TO FLASE
+		REPEAT FROM I EQUALS 0 TO LNEGTH sentence -1
+			SET char TO sentence[I]
+			IF char IS LOWERCASE LETTER THEN
+				SET hasLowerCASE TO TRUE
+			END IF
+		END REPEAT
+
+		IF hasLowerCase EQUALS TRUE THEN
+			DISPLAY "Mixed or lowercase"
+		ELSE
+			DISPLAY "All uppercase"
+		DISPLAY result
+	END	
+
+STOP
