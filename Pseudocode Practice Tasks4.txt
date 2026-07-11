@@ -111,3 +111,14 @@ START
 		DISPLAY output
 	END
 STOP
+-----------------------------------------------------------
+Task 144: Replace Word
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET output TO REPLACE ALL "bad" WITH "good" IN sentence
+		DISPLAY output
+	END
+STOP
