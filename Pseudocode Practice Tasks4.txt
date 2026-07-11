@@ -387,3 +387,23 @@ START
 		DISPLAY result
 	END
 STOP
+-----------------------------------------------------------
+Task 159: Alternating Case
+
+START
+	BEGIN
+		DISPLAY "Enter word"
+		READ word
+		SET result TO ""
+		REPEAT FROM I EQUALS 0 TO LENGTH OF word -1
+			SET char TO word[I]
+			IF I % 2 EQUALS 0 THEN
+				SET result TO result + UPPERCASE char
+			ELSE
+				SET result TO result + LOWERCASE char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END	
+
+STOP
