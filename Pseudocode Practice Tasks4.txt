@@ -11,3 +11,18 @@ START
 		END IF
 	END
 STOP
+------------------------------------------------
+Task 137: First Character Identifier
+
+START
+	BEGIN
+		DISPLAY "Enter any words"
+		READ word
+		IF LENGTH OF word EQUALS TO 0 THEN
+			DISPLAY "No character"
+		ELSE 
+			DISPLAY CHARACTER AT TEXT INDEX 0
+		END IF
+	END
+STOP
+
