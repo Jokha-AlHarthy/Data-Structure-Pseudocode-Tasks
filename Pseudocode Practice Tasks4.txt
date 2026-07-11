@@ -325,3 +325,19 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 156: Extract All Digits
+START
+	BEGIN
+		DISPLAY "Enter sentence"
+		READ sentence
+		SET DIGITS TO ""
+		REPEAT FROM I EQUALS 0 TO LENGTH OF sentence -1
+			SET char TO sentence[I]
+			IF char IS DIGIT THEN
+				SET DIGITS TO DIGITS + CH
+			END IF
+		END REPEAT
+		DISPLAY DIGITS
+	END
+STOP
