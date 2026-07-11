@@ -183,3 +183,24 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 149: Case Check of Second Character
+
+START
+	BEGIN
+		DISPLAY "Enter a word"
+		READ word
+		IF LENGTH OF word LESS THAN 2 THEN
+			DISPPLAY "Word too short"
+		ELSE 
+			SET char TO word[1]
+			IF char IS UPPERCASE LATTER THEN
+				DISPLAY "Second character is uppercase"
+			ELSE IF chat LOWERCASE LATTER THEN
+				DISPLAY "Second character is lowercase"
+			ELSE 
+				DISPLAY "Second character is not a letter"
+			END IF
+		END IF
+	END
+STOP
