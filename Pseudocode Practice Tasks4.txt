@@ -262,3 +262,21 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 153: Remove All Digits
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence containing letters, digits, and other symbols"
+		READ sentence 
+		SET result TO ""
+		REPEAT FROM I EQUALS 0 OF sentence -1
+			SET char TO sentence[I]
+			IF chat IS NOT DIGIT THEN
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END	
+
+STOP
