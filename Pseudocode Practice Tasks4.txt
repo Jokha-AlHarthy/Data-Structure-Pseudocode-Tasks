@@ -89,3 +89,14 @@ START
 		END REPEAT
 	END
 STOP
+-----------------------------------------------------------
+Task 142: Convert to Uppercase
+
+START
+	BEGIN
+		DISPLAY "Enter a phrase: "
+		READ phrase
+		SET output TO UPPERCASE phrase
+		DISPLAY output
+	END
+STOP
