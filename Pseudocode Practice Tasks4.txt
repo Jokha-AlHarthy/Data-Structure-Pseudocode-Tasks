@@ -162,3 +162,24 @@ START
 		DISPLAY result 
 	END
 STOP
+-----------------------------------------------------------
+Task 148: Check First Character Type
+
+START
+	BEGIN
+		DISPLAY "Enter a word"
+		READ word
+		IF LENGTH OF word EQULAS TO 0 THEN
+			DISPPLAY "Empty string"
+		ELSE 
+			SET char TO word[0]
+			IF char IS LETTER THEN
+				DISPLAY "Letter"
+			ELSE IF char IS DIGIT THEN
+				DISPLAY "Digit"
+			ELSE 
+				DISPLAY "Other"
+			END IF
+		END IF
+	END
+STOP
