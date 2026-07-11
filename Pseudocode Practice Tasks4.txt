@@ -243,3 +243,22 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 152: Count Character Occurrences
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		DISPLAY "Enter a char"
+		READ char
+		SET target TO char[0]
+		SET count TO 0
+		REPEAT FROM I EQUALS 0 OF sentence -1
+			IF sentence[I] EQUALS target THEN
+				SET count TO count + 1
+			END IF
+		END REPEAT
+	END	
+
+STOP
