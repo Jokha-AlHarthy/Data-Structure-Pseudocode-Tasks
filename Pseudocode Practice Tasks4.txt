@@ -361,3 +361,29 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 158: Mask Email Address
+
+START
+	BEGIN
+		DISPLAY "Enter an email address"
+		READ email
+
+		SET parts TO SPLIT email BY "@"
+		SET local TO parts[0]
+		SET domain TO parts[1]
+
+		IF LENGTH OF local LESS THAN OR EQUAL TO 2 THEN
+			SET result TO local + "@" + domain
+		ELSE
+			SET stars TO ""
+			REPEAT FROM I EQUALS 1 TO LENGTH OF local - 2
+				SET stars TO stars + "*"
+			END REPEAT
+
+			SET result TO local[0] + stars + local[LENGTH OF local - 1] + "@" + domain
+		END IF
+
+		DISPLAY result
+	END
+STOP
