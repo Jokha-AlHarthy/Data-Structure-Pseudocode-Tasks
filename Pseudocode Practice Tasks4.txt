@@ -407,3 +407,31 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 160: Validate Parentheses Balance
+
+START
+	BEGIN
+		DISPLAY "Enter word"
+		READ word
+		SET balance TO 0
+		SET VALID TO TRUE
+		REPEAT FROM I EQUALS 0 TO LENGTH OF TEXT -1
+			SET char TO word[I]
+			IF char EQUALS "(" THEN
+				SET balance TO balance + 1
+			ELSE IF char EQUALS ")" THEN
+				SET balance TO balance - 1
+				IF balance LESS THAN 0 THEN
+					SET vaild TO FALSE
+				END IF
+			END IF
+		END REPEAT
+		IF vaild EQUALS TRUE AND balance EQUALS 0 THEN
+			DISPLAY "Balanced"
+		ELSE
+			DISPLAY "Unbalanced"
+		END IF
+	END	
+
+STOP
