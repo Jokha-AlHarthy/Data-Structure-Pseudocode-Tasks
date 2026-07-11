@@ -224,3 +224,22 @@ START
 		DISPLAY result
 	END	
 STOP
+-----------------------------------------------------------
+Task 151: Palindrome Checker
+
+START
+	BEGIN
+		DISPLAY "Enter a word"
+		READ word
+		SET reverse TO ""
+		REPEAT FROM I EQUALS LENGTH of word -1 TO 0 STEP -1
+			SET reverse TO reverse + word[I]
+		END REPEAT
+		IF word EQUALS reverse THEN
+			DISPLAY "Palindrome"
+		ELSE 
+			DISPLAY "Not a palindrome"
+		END IF
+	END	
+
+STOP
