@@ -100,3 +100,14 @@ START
 		DISPLAY output
 	END
 STOP
+-----------------------------------------------------------
+Task 143: Trim Whitespace
+
+START
+	BEGIN
+		DISPLAY "Enter any text: "
+		READ text
+		SET output TO TRIM text
+		DISPLAY output
+	END
+STOP
