@@ -40,3 +40,17 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 139: Contains Keyword
+
+START
+	BEGIN
+		DISPLAY "Enter a comment"
+		READ comment
+		IF comment CONTAINS "urgent" THEN
+			DIPLSAY "Priority message"
+		ELSE 
+			DISPLAY "Urgent help"
+		END IF
+	END
+STOP
