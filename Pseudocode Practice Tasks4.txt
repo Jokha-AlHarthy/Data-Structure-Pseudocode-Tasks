@@ -135,3 +135,20 @@ START
 		END REPEAT
 	END
 STOP
+-----------------------------------------------------------
+Task 146: Split and Count Words
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET words TO SPLIT sentence BY ""
+		SET count TO 0
+		REPEAT FROM I EQUALS TO 0 OF words -1 
+			IF words[I] NOT EQUALS "" THEN
+				SET count TO count + 1
+			END IF
+		END REPEAT
+		DISPLAY count
+	END
+STOP
