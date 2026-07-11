@@ -204,3 +204,23 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 150: Replace Vowels with Asterisks
+
+START
+	BEGIN
+		DISPLAY "Enter a word"
+		READ word
+		SET result TO ""
+		SET vowel TO LIST ["A","a","O","o","U","u","E","e","I","i"]
+		REAPET FROM I EQUALS 0 TO LENGTH OF word -1
+			SET char TO word[I]
+			IF vowel CONTAINS char TEHN
+				SET result TO result + ""
+			ELSE
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END	
+STOP
