@@ -341,3 +341,23 @@ START
 		DISPLAY DIGITS
 	END
 STOP
+-----------------------------------------------------------
+Task 157: Find Longest Word
+
+START
+	BEGIN
+		DISPLAY "Enter sentence"
+		READ sentence
+		SET words TO SPLIT sentence BY " "
+		SET longest TO ""
+		SET maxLength TO 0
+		REPEAT FROM I EQUALS 0 TO SIZE OF words -1
+			IF LENGTH OF words[I] GREATER THAN maxLength THEN
+				SET longest TO words[I]
+				SET maxLength TO LENGTH OF words[I]
+			END IF
+		END REPEAT
+		DISPLAY "Longest word: " + longest + " with length " + maxLength
+	END	
+
+STOP
