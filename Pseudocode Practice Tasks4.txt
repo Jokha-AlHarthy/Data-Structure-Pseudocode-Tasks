@@ -280,3 +280,25 @@ START
 	END	
 
 STOP
+-----------------------------------------------------------
+Task 154: Capitalize First Letter of Each Word
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET result TO ""
+		SET words TO SPLIT sentence BY " "
+		REPEAT FROM I EQUALS 0 TO SIZE OF words -1
+			SET word TO words[I]
+			SET newWord TO UPPER OF word[0] + LOWER OF word
+			FROM INDEX 1 TO LENGTH OF word -1
+				SET result TO result + newWord
+				IF I LESS THAN SIZE OF words -1 THEN
+					SET result TO result + " "
+				END IF
+		END REPEAT
+		DISPLAY result
+	END	
+
+STOP
