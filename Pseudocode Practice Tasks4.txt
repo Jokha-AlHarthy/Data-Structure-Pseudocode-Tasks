@@ -68,3 +68,24 @@ START
 		END IF
 	END
 STOP
+-----------------------------------------------------------
+Task 141: Find First Vowel Position
+
+START
+	BEGIN
+		DISPLAY "Enter a word "
+		READ word
+		SET position TO -1
+		SET vowel TO LIST ["A", "a","O","o","U","u","E","e","I","i"]
+		REPEAT FROM I = 0 TO LENGTH OF word -1
+			SET CHAR TO word[I]
+			IF poistion EQUALS -1 AND vowel CONTAINS CHAR THEN
+				SET position TO I+1
+			ELSE IF position EQUALS -1 THEN
+				DISPLAY -1
+			ELSE 
+				DISPLAY "The first vowel at position:"+ position
+			END IF
+		END REPEAT
+	END
+STOP
