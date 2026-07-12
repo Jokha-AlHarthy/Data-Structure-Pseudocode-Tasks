@@ -1,0 +1,13 @@
+Task 161: Concatenate First and Last Name 
+
+START
+	BEGIN
+		DISPLAY "Enter your first name"
+		READ firstName
+		DISPLAY "Enter your last name"
+		READ lastName
+		SET fullName To firstNamr + "" + lastName
+		DISPLAY fullName
+		
+	END	
+STOP
