@@ -174,3 +174,20 @@ START
 		DISPLAY count
 	END		
 STOP
+------------------------------------------------------
+Task 172: Count Lowercase Letters 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET count TO 0
+		REPEAT FROM I EQULAS 0 TO LENGTH OF sentence -1
+			IF sentence[I] IS LOWERCASE LETTER THEN
+				SET count TO count + 1 
+			END IF
+		END REPEAT
+		DISPLAY count
+		 
+	END		
+STOP
