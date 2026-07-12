@@ -254,3 +254,18 @@ START
 		END IF
 	END		
 STOP
+------------------------------------------------------
+Task 177: Remove Last Character 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		IF LENGTH OF sentence LESS THAN OR EQUAL TO 1 THEN
+			DISPLAY ""
+		ELSE
+			SET result TO sentence FROM INDEX 1 TO LENGTH OF sentence -2
+			DISPLAY result
+		END IF
+	END		
+STOP
