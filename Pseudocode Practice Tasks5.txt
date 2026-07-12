@@ -6,7 +6,7 @@ START
 		READ firstName
 		DISPLAY "Enter your last name"
 		READ lastName
-		SET fullName To firstNamr + "" + lastName
+		SET fullName To firstName + " " + lastName
 		DISPLAY fullName
 		
 	END	
