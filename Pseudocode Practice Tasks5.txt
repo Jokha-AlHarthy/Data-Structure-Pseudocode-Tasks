@@ -19,7 +19,7 @@ START
 		DISPLAY "Enter a sentence"
 		READ sentence
 		IF sentence STARTS WITH "Hello" THEN
-			DIPSLAY "Greeting detected"
+			DISPLAY "Greeting detected"
 		ELSE 
 			DISPLAY "Not a greeting"
 		END IF
