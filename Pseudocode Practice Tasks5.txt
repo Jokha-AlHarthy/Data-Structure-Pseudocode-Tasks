@@ -44,6 +44,7 @@ START
 				DISPLAY -1
 			ELSE 
 				DISPLAY "Last occurrence at position: "+POSITION
-			END IF
+			END IF	
+		END REPEAT
 	END		
 STOP
