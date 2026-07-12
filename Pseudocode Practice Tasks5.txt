@@ -26,3 +26,24 @@ START
 		
 	END	
 STOP
+------------------------------------------------------
+Task 163: Find Last Index of Character 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		DISPLAY "Enter a character"
+		READ char
+		SET target TO char[0]
+		REPEAT FROM I EQUALS TO LENGTH OF sentence -1
+			IF sentence[I] EQUALS target THEN
+				SET POSITION TO I + 1
+			END IF 
+			IF POSITION EQUALS - THEN
+				DISPLAY -1
+			ELSE 
+				DISPLAY "Last occurrence at position: "+POSITION
+			END IF
+	END		
+STOP
