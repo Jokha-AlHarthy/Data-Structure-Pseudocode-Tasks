@@ -222,3 +222,20 @@ START
 		END IF
 	END		
 STOP
+------------------------------------------------------
+Task 175: Extract Last Three Characters 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		IF LENGTH OF sentence LESS THAN 3 TEHN
+			DISPLAY sentence
+		ELSE 	
+			SET startIndex TO LENGTH OF sentence - 3
+			SET result TO sentence FROM INDEX LENGTH OF sentence -3 TO LENGTH OF sentence -1
+			DISPLAY result
+		END IF
+		 
+	END		
+STOP
