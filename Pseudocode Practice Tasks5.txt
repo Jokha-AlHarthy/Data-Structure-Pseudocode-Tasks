@@ -36,16 +36,17 @@ START
 		DISPLAY "Enter a character"
 		READ char
 		SET target TO char[0]
-		REPEAT FROM I EQUALS TO LENGTH OF sentence -1
+		SET POISTION TO -1
+		REPEAT FROM I EQUALS LENGTH OF sentence -1 TO 0 STEP -1
 			IF sentence[I] EQUALS target THEN
 				SET POSITION TO I + 1
-			END IF 
-			IF POSITION EQUALS - THEN
-				DISPLAY -1
-			ELSE 
-				DISPLAY "Last occurrence at position: "+POSITION
-			END IF	
+			END IF
 		END REPEAT
+		IF POSITION EQUALS -1 THEN
+			DISPLAY -1
+		ELSE 
+			DISPLAY "Last occurrence at position: "+POSITION
+		END IF	
 	END		
 STOP
 ------------------------------------------------------
