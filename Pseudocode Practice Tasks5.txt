@@ -207,3 +207,18 @@ START
 		DISPLAY count
 	END		
 STOP
+------------------------------------------------------
+Task 174: Extract First Three Characters 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		IF LENGTH OF sentence LESS THAN 3 TEHN
+			DISPLAY sentence
+		ELSE 
+			SET result TO sentence FROM INDEX 0 TO 2
+			DISPLAY result
+		END IF
+	END		
+STOP
