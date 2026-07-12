@@ -74,3 +74,23 @@ START
 		DISPLAY result
 	END		
 STOP
+------------------------------------------------------
+Task 166: Check if String Contains Only Letters
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET isLetter TO TRUE
+		REPEAT FROM I EQULAS 0 TO LENGTH OF sentence -1
+			IF sentence[I] NOT IS LETTER THEN
+				SET isLetter TO FLASE
+			END IF
+		END REPEAT
+		IF isLetter EQUALS TO TRUE THEN
+			DISPLAY "Only letters"
+		ELSE
+			DISPLAY "Contains non-letters"
+		END IF 
+	END		
+STOP
