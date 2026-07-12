@@ -158,3 +158,19 @@ START
 		DISPLAY result 
 	END		
 STOP
+------------------------------------------------------
+Task 171: Count Uppercase Letters 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET count TO 0
+		REPEAT FROM I EQULAS 0 TO LENGTH OF sentence -1
+			IF sentence[I] IS UPPERCASE LETTER THEN
+				SET count TO count + 1 
+			END IF
+		END REPEAT
+		DISPLAY count
+	END		
+STOP
