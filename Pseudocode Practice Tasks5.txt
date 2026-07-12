@@ -94,3 +94,15 @@ START
 		END IF 
 	END		
 STOP
+------------------------------------------------------
+Task 167: Count Words in Sentence 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET words TO SPLIT sentence BY ""
+		DISPLAY SIZE OF words
+		 
+	END		
+STOP
