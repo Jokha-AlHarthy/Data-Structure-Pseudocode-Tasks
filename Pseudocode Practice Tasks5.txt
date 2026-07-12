@@ -269,3 +269,19 @@ START
 		END IF
 	END		
 STOP
+------------------------------------------------------
+Task 178: Check if String is Empty or Only Whitespace 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET sentence TO TIRM sentence
+		IF LENGTH OF sentence EQULAS 0 THEN
+			DISPLAY "Empty or only spaces"
+		ELSE 
+			DISPLAY "Contains content"
+		END IF
+		 
+	END		
+STOP
