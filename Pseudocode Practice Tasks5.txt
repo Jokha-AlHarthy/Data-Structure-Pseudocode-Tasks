@@ -59,3 +59,18 @@ START
 		DISPLAY sentence
 	END		
 STOP
+------------------------------------------------------
+Task 165: Remove All Spaces 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET words TO SPLIT sentence BY ""
+		SET result TO ""
+		REPEAT FROM I EQULAS 0 TO SIZE OF words -1
+			SET result TO result + words[I]
+		END REPEAT
+		DISPLAY result
+	END		
+STOP
