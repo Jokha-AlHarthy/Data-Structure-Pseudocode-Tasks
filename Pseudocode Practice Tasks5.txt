@@ -115,12 +115,15 @@ START
 		DISPLAY "Enter a sentence"
 		READ sentence 
 		SET vowel TO LIST["a","e","i","o","u","A","E","I","O","U"] 
-		REPEAT FROM I EQUALS TO LENGTH OF sentence -1
+		SET result TO " " 
+		REPEAT FROM I EQUALS 0 TO LENGTH OF sentence -1
 			IF vowel CONTAINS sentence[I] THEN
-				REPLACE sentence WITH "?" IN sentence
+				SET result TO result + "?"
+			ELSE 
+				SET result To result + sentence[I]
 			END IF 
 		END REPEAT
-		 
+		DISPLAY result
 	END		
 STOP
 ------------------------------------------------------
