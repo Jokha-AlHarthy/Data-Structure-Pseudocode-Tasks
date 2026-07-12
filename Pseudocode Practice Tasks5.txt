@@ -316,7 +316,7 @@ START
 		READ sentence 
 		DIPLAY "Enter a number"
 		READ number
-		REPEAT FROM I EQULAS TO number
+		REPEAT FROM I EQULAS 1 TO number
 			SET result TO result + sentence
 		END REPEAT
 		DISPLAY result
