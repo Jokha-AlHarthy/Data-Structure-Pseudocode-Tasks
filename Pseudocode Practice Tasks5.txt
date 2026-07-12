@@ -285,3 +285,20 @@ START
 		 
 	END		
 STOP
+------------------------------------------------------
+Task 179: Swap First and Last Characters 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		IF LENGTH OF sentence LESS THAN 2 THEN	
+			DISPLAY sentence
+		ELSE	
+			SET first TO sentence[0]
+			SET last TO sentence[LENGTH OF sentence -1]
+			SET middle TO sentence FROM INDEX 1 TO LENGTH OF sentence -2
+			SET result TO last + middle +first
+			DISPLAY result
+		END IF	 
+	
