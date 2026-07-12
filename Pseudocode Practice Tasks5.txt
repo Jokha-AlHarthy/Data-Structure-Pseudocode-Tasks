@@ -141,3 +141,20 @@ START
 		END IF	 
 	END		
 STOP
+------------------------------------------------------
+Task 170: Remove All Punctuation 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET result TO ""
+		REPEAT FROM I EQUALS 0 TO LENGTH OF sentence -1
+			SET char TO sentence[I]
+			IF char NOT EQUALS "." AND char NOT EQUALS "," AND char NOT EQUALS "!" AND char NOT EQUALS "?" AND char NOT EQUALS ";" AND char NOT EQUALS ":" THEN
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result 
+	END		
+STOP
