@@ -122,3 +122,22 @@ START
 		 
 	END		
 STOP
+------------------------------------------------------
+Task 169: Check if String is Palindrome (Case-Insensitive) 
+
+START
+	BEGIN
+		DISPLAY "Enter a word"
+		READ word
+		SET word TO LOWERCASE word
+		SET reverse TO ""
+		REPEAT FROM I EQULAS LENGTH OF word -1 TO 0 STEP -1
+			SET reverse TO reverse + word[I]
+		END REPEAT
+		IF word EQULAS reverse THEN
+			DISPLAY "Palindrome"
+		ELSE 
+			DISPLAY "Not a palindrome"
+		END IF	 
+	END		
+STOP
