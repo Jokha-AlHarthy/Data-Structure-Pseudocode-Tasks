@@ -106,3 +106,19 @@ START
 		 
 	END		
 STOP
+------------------------------------------------------
+Task 168: Replace All Vowels with '?' 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		SET vowel TO LIST["a","e","i","o","u","A","E","I","O","U"] 
+		REPEAT FROM I EQUALS TO LENGTH OF sentence -1
+			IF vowel CONTAINS sentence[I] THEN
+				REPLACE sentence WITH "?" IN sentence
+			END IF 
+		END REPEAT
+		 
+	END		
+STOP
