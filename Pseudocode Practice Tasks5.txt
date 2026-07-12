@@ -268,7 +268,7 @@ START
 		IF LENGTH OF sentence LESS THAN OR EQUAL TO 1 THEN
 			DISPLAY ""
 		ELSE
-			SET result TO sentence FROM INDEX 1 TO LENGTH OF sentence -2
+			SET result TO sentence FROM INDEX 0 TO LENGTH OF sentence -2
 			DISPLAY result
 		END IF
 	END		
