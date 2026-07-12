@@ -11,3 +11,18 @@ START
 		
 	END	
 STOP
+------------------------------------------------------
+Task 162: Check String Starts with "Hello" 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		IF sentence STARTS WITH "Hello" THEN
+			DIPSLAY "Greeting detected"
+		ELSE 
+			DISPLAY "Not a greeting"
+		END IF
+		
+	END	
+STOP
