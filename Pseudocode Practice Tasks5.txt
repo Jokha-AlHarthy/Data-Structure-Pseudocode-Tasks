@@ -48,3 +48,14 @@ START
 		END REPEAT
 	END		
 STOP
+------------------------------------------------------
+Task 164: Convert to Lowercase 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO LOWERCASE sentence 
+		DISPLAY sentence
+	END		
+STOP
