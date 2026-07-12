@@ -240,7 +240,7 @@ START
 	END		
 STOP
 ------------------------------------------------------
-Task 177: Remove Last Character 
+Task 176: Remove First Character 
 
 START
 	BEGIN
