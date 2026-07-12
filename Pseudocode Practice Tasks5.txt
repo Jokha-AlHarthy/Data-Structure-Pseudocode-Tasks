@@ -301,4 +301,5 @@ START
 			SET result TO last + middle +first
 			DISPLAY result
 		END IF	 
-	
+	END
+STOP
