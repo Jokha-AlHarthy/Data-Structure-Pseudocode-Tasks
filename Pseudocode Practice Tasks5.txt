@@ -103,9 +103,8 @@ START
 	BEGIN
 		DISPLAY "Enter a sentence"
 		READ sentence 
-		SET words TO SPLIT sentence BY ""
+		SET words TO SPLIT sentence BY " "
 		DISPLAY SIZE OF words
-		 
 	END		
 STOP
 ------------------------------------------------------
