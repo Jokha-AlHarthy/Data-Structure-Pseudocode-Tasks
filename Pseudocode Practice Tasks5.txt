@@ -67,10 +67,11 @@ START
 	BEGIN
 		DISPLAY "Enter a sentence"
 		READ sentence 
-		SET words TO SPLIT sentence BY ""
 		SET result TO ""
-		REPEAT FROM I EQULAS 0 TO SIZE OF words -1
-			SET result TO result + words[I]
+		REPEAT FROM I EQULAS 0 TO SIZE OF sentence -1
+			IF sentence[I] NOT EQULAS " " THEN
+				SET result TO result + sentence[I]
+			END IF
 		END REPEAT
 		DISPLAY result
 	END		
