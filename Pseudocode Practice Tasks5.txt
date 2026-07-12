@@ -303,3 +303,18 @@ START
 		END IF	 
 	END
 STOP
+------------------------------------------------------
+Task 180: Repeat String N Times 
+
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence 
+		DIPLAY "Enter a number"
+		READ number
+		REPEAT FROM I EQULAS TO number
+			SET result TO result + sentence
+		END REPEAT
+		DISPLAY result
+	END		
+STOP
