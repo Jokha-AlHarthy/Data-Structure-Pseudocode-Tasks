@@ -247,3 +247,22 @@ START
 		END IF
 	END
 STOP
+------------------------------------------------------
+Task 195: Remove Duplicate Consecutive Characters 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		SET remove TO ""
+		REPEAT FROM I EQUALS 1 TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF char NOT EQULAS remove + char
+				SET result TO result + char
+				SET remove TO char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END
+STOP
