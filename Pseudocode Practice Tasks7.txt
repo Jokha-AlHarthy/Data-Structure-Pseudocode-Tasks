@@ -1,0 +1,21 @@
+Category 1: Registration & Lookup Systems 
+
+Task 201: Event Check-In System
+START
+	BEGIN
+		SET TICKET_TYPES TO MAP ["VIP001" maps to "VIP", "GEN002" maps to "General"]
+		CREATE SET CHECKED_IN 
+		READ GUEST_NAME
+		READ TICKET_CODE
+		SET TICKET_CODE TO UPPERCASE TICKET_CODE
+		IF SET CONTAINS CHECKED_IN IN TICKET_CODE THEN
+			DISPLAY "The ticket already used & the entry refused"
+		ELSE IF MAP CONTAINS KEY TICKET_TYPES THEN
+			ADD TICKET_CODE TO SET CHECKED_IN
+			SET TIER TO GET FROM MAP TICKET TYPES TICKET_CODE
+			DISPLAY "Welcome, " + GUEST_NAME + " - " + TIER + "access granted"
+		ELSE
+			DISPLAY "Sorry.. ticket is not recognized"
+		END IF
+	END 
+STOP
