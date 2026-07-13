@@ -284,3 +284,32 @@ START
 
     END
 STOP
+--------------------------------------------------------------------------------
+Task 210: Investment Portfolio Updater
+
+START
+    BEGIN
+
+        SET PORTFOLIO TO MAP["Gold" TO 5000, "Stocks" TO 8000]
+        CREATE SET GAINERS
+        SET REPORT TO LIST[]
+        SET TOTAL TO 0
+        SET KEYS TO GET ALL KEYS PORTFOLIO
+        REPEAT FROM I EQUALS 1 TO SIZE OF KEYS
+            DISPLAY "Enter percentage change"
+            READ CHANGE
+            SET VALUE TO GET FROM MAP PORTFOLIO KEYS[I]
+            SET NEW_VALUE TO VALUE + (VALUE * CHANGE)
+            SET MAP PORTFOLIO KEYS[I] TO NEW_VALUE
+            ADD KEYS[I] TO LIST REPORT
+            SET TOTAL TO TOTAL + NEW_VALUE
+            IF CHANGE GREATER THAN 0 THEN
+                ADD KEYS[I] TO SET GAINERS
+            END IF
+            DISPLAY KEYS[I] + " Updated"
+        END REPEAT
+        DISPLAY "The total value is" + TOTAL
+        DISPLAY "Gainers size is " + SET SIZE OF GAINERS
+
+    END
+STOP
