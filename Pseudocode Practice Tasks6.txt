@@ -73,7 +73,7 @@ START
 	END
 STOP
 ------------------------------------------------------
-Task 187: Insert Space After Every Character 
+Task 186: Check if String Contains Only Lowercase Letters 
 START
 	BEGIN
 		DISPLAY "Enter a sentence"
