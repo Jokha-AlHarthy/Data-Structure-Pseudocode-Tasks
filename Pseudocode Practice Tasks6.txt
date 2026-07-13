@@ -336,3 +336,23 @@ START
 		DISPLAY rotated
 	END
 STOP
+------------------------------------------------------
+Task 199: Right Rotate String by N Positions 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		DISPLAY "Enter a number"
+		READ number
+		SET sentence TO ""
+		SET number TO 0
+		SET len TO 0
+		SET rotated TO ""
+		SET len TO LENGTH OF sentence
+		SET shift TO len - number
+		SET part1 TO sentence FROM INDEX shift+1 TO len
+		SET part2 TO sentence FROM INDEX 1 TO shift
+		SET rotated TO part1+part2
+		DISPLAY rotated
+	END
+STOP
