@@ -109,3 +109,21 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 188: Remove Vowels 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		SET vowles TO LIST["a","e","i","o","u","A","E","I","O","U"] 
+		REPEAT FROM I EQUALS TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF NOT(vowels CONTAINS char) THEN
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END
+STOP
