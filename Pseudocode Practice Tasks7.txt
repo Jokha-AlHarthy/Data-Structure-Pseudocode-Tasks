@@ -20,7 +20,8 @@ START
 	END 
 STOP
 -------------------------------------------------------------------------------------
-Task 202: Event Check-In System
+Task 202: Student Subject Enrolment
+
 START
 	BEGIN
 		SET CAPACITY TO MAP ["Math" TO 30, "Science" TO 25]
