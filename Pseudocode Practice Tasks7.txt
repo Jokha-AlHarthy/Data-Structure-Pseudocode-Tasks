@@ -241,3 +241,46 @@ START
         DISPLAY "Categories used size is" + SET SIZE OF CATS_USED
     END
 STOP
+--------------------------------------------------------------------------------
+Task 209: Bank Account Transaction Processor
+
+START
+    BEGIN
+
+        SET ACCOUNTS TO MAP["ACC001" TO 1500,"ACC002" TO 300]
+        CREATE SET FLAGGED
+        SET LOG TO LIST[]
+        REPEAT FROM I EQULAS 1 TO 4
+            DISPLAY "Enter account ID"
+            READ ACCOUNT
+            DISPLAY "Enter operation"
+            READ OPERATION
+            DISPLAY "Enter amount"
+            READ AMOUNT
+            SET OPERATION TO UPPERCASE OPERATION
+            IF NOT MAP CONTAINS KEY ACCOUNTS ACCOUNT THEN
+                DISPLAY "Account not found"
+            ELSE IF AMOUNT LESS THAN OR EQUAL TO 0 THEN
+                DISPLAY "Invalid amount"
+            ELSE IF SET CONTAINS FLAGGED ACCOUNT THEN
+                DISPLAY "Account is blocked"
+            ELSE
+                IF OPERATION EQUALS "DEPOSIT" THEN
+                    SET MAP ACCOUNTS ACCOUNT TO GET FROM MAP ACCOUNTS ACCOUNT + AMOUNT
+                ELSE IF OPERATION EQUALS "WITHDRAW" THEN
+                    IF AMOUNT GREATER THAN GET FROM MAP ACCOUNTS ACCOUNT THEN
+                        DISPLAY "Insufficient balance"
+                    ELSE
+                        SET MAP ACCOUNTS ACCOUNT TO GET FROM MAP ACCOUNTS ACCOUNT - AMOUNT
+                        IF AMOUNT GREATER THAN 2000 THEN
+                            ADD ACCOUNT TO SET FLAGGED
+                        END IF
+                    END IF
+                END IF
+                ADD ACCOUNT TO LIST LOG
+                DISPLAY "The balance is " + GET FROM MAP ACCOUNTS ACCOUNT
+            END IF
+        END REPEAT
+
+    END
+STOP
