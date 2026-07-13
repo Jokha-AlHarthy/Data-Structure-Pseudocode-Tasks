@@ -75,3 +75,35 @@ START
         END IF
     END
 STOP
+-------------------------------------------------------------------------------------
+Task 204: Library Book Loan System 
+
+START
+    BEGIN
+
+        SET STOCK TO MAP ["Dune" TO 3,"Hamlet" TO 0]
+        CREATE SET BORROWERS
+        SET LOANS TO LIST []
+
+        REPEAT FROM I EQUALS 1 TO 4 
+            DISPLAY "Enter member name"
+            READ MEMBER
+            DISPLAY "Enter book title"
+            READ BOOK
+            SET MEMBER TO (TRIM MEMBER)
+            SET BOOK TO (TRIM BOOK)
+            IF NOT MAP CONTAINS KEY STOCK BOOK THEN
+                DISPLAY "Book not found"+BOOK
+            ELSE IF GET FROM MAP STOCK BOOK EQUALS 0 THEN
+                DISPLAY "No copies available"
+            ELSE
+                SET MAP STOCK BOOK TO GET FROM MAP STOCK BOOK - 1
+                ADD MEMBER TO SET BORROWERS
+                ADD BOOK TO LIST LOANS
+                DISPLAY "Loan approved."
+            END IF
+        END REPEAT
+        DISPLAY "Total loans is" + SIZE OF LOANS
+        DISPLAY "Unique borrowers is " + SET SIZE OF BORROWERS
+    END
+STOP
