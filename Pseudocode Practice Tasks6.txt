@@ -356,3 +356,25 @@ START
 		DISPLAY rotated
 	END
 STOP
+------------------------------------------------------
+Task 200: Encode String by Shifting Each Character by 1 
+START
+    DISPLAY "Enter a sentence"
+    READ sentence
+    SET result TO ""
+    FOR EACH character IN sentence
+        IF character IS BETWEEN 'a' AND 'y' THEN
+            ADD NEXT LETTER TO result
+        ELSE IF character EQULAS TO 'z' THEN
+            ADD 'a' TO result
+        ELSE IF character IS BETWEEN 'A' AND 'Y' THEN
+            ADD NEXT LETTER TO result
+        ELSE IF character EQULAS TO 'Z' THEN
+            ADD 'A' TO result
+        ELSE
+            ADD character TO result
+        END IF
+    END FOR
+
+    DISPLAY result
+STOP
