@@ -51,3 +51,25 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 185: Check if String Contains Only Uppercase Letters 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		SET onlyUpper TO TRUE
+		REPEAT FROM I EQUALS TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF NOT(char GRATER THAN OR EQUAL TO "A" AND char LESS THAN OR EQUAL TO "Z") THEN
+				SET onlyUpper TO FLASE
+			END IF
+		END REPEAT
+		IF onlyUpper EQUALS TURE THEN
+			DISPLAY "All uppercase letters"
+		ELSE
+			DISPLAY "Not all uppercase letters"
+		END IF
+	END
+STOP
