@@ -46,3 +46,30 @@ START
 		DISPLAY "The total subjects enrolled:+ SIZE OF LOG
 	END 
 STOP
+
+-------------------------------------------------------------------------------------
+Task 203: Event Check-In System
+START
+    BEGIN
+
+        SET USER_DB TO MAP ["ali99" TO "Ali Hassan", "sara_m" TO "Sara Ali"]
+        DISPLAY "Enter username:"
+        READ USERNAME
+        DISPLAY "Enter full name"
+        READ FULLNAME
+        SET USERNAME TO LOWERCASE(TRIM USERNAME)
+        IF LENGTH OF USERNAME LESS THAN 4 THEN 
+            DISPLAY "Username is too short"
+        ELSE IF LENGTH OF USERNAME GREATER THAN 15 THEN
+            DISPLAY "Username is too long"
+        ELSE IF MAP CONTAINS KEY USER_DB USERNAME THEN
+            DISPLAY "Username already exists."
+        ELSE
+            SET MAP USER_DB USERNAME TO FULLNAME
+
+            DISPLAY "Account created successfully."
+            DISPLAY "Total users = " + MAP SIZE OF USER_DB
+
+        END IF
+    END
+STOP
