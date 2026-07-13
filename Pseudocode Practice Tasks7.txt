@@ -135,3 +135,39 @@ START
 
     END
 STOP
+--------------------------------------------------------------------------------
+Category 2: Financial & Scoring Systems — Solutions 
+
+Task 206: Shopping Cart & Discount Engine
+START
+    BEGIN
+
+        SET PRICES TO MAP ["Laptop" TO 800, "Phone" TO 400, "Headphones" TO 120]
+        CREATE SET SEEN
+        SET CART TO LIST []
+        SET TOTAL TO 0
+        DISPLAY "Enter item "
+        READ ITEM
+        REPEAT WHILE ITEM NOT EQUALS "CHECKOUT"
+            SET ITEM TO (TRIM ITEM)
+            IF NOT MAP CONTAINS KEY PRICES ITEM THEN
+                DISPLAY "Item not found"
+            ELSE IF SET CONTAINS SEEN ITEM THEN
+                DISPLAY "Item already added"
+            ELSE
+                ADD ITEM TO SET SEEN
+                ADD ITEM TO LIST CART
+                SET TOTAL TO TOTAL + GET FROM MAP PRICES ITEM
+                DISPLAY "Item added"
+            END IF
+            DISPLAY "Enter item "
+            READ ITEM
+        END REPEAT
+        IF SIZE OF CART GREATER THAN OR EQUAL TO 3 THEN
+            SET TOTAL TO TOTAL * 0.90
+            DISPLAY "10% discount applied"
+        END IF
+        DISPLAY "The total is" + TOTAL
+    END
+STOP
+
