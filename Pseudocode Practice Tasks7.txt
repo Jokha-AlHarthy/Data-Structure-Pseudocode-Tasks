@@ -204,3 +204,40 @@ START
         DISPLAY "The total Payroll = " + GRAND_TOTAL
     END
 STOP
+--------------------------------------------------------------------------------
+Task 208: Product Tax Invoice Builder
+
+START
+    BEGIN
+
+        SET TAX_RATES TO MAP ["FOOD" TO 0, "ELECTRONICS" TO 0.15]
+        CREATE SET CATS_USED
+        SET INVOICE TO LIST []
+        SET TOTAL_TAX TO 0
+        DISPLAY "Enter product"
+        READ PRODUCT
+        REPEAT WHILE PRODUCT NOT EQUALS "DONE"
+            DISPLAY "Enter category"
+            READ CATEGORY
+            DISPLAY "Enter price"
+            READ PRICE
+            SET CATEGORY TO UPPERCASE CATEGORY
+            IF PRICE LESS THAN OR EQUAL TO 0 THEN
+                DISPLAY "Invalid price"
+            ELSE IF NOT MAP CONTAINS KEY TAX_RATES CATEGORY THEN
+                DISPLAY "Category not found"
+            ELSE
+                SET TAX TO PRICE * GET FROM MAP TAX_RATES CATEGORY
+                SET TOTAL_TAX TO TOTAL_TAX + TAX
+                ADD CATEGORY TO SET CATS_USED
+                ADD PRODUCT TO LIST INVOICE
+                DISPLAY "The tax is " + TAX
+            END IF
+            DISPLAY "Enter product"
+            READ PRODUCT
+        END REPEAT
+        DISPLAY "Invoice lines size is" + SIZE OF INVOICE
+        DISPLAY "The total of tax is" + TOTAL_TAX
+        DISPLAY "Categories used size is" + SET SIZE OF CATS_USED
+    END
+STOP
