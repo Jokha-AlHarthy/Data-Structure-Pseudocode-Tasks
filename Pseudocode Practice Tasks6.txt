@@ -174,7 +174,9 @@ START
 		SET result TO ""
 		IF LENGTH OF sentence GREATER THAN 0 TEHN
 			SET first TO CHARCTER AT sentence INDEX 1
-		END IF
+			IF IS LETTER first THEN 
+				SET first TO UPPERCASE OF first 
+			END IF
 			SET rest TO sentence FROM INDEX 2 TO LENGTH OF sentence
 			SET result TO first + first
 		ELSE 
