@@ -19,3 +19,30 @@ START
 		END IF
 	END 
 STOP
+-------------------------------------------------------------------------------------
+Task 202: Event Check-In System
+START
+	BEGIN
+		SET CAPACITY TO MAP ["Math" TO 30, "Science" TO 25]
+		CREATE SET ENROLLED 
+		SET LOG TO LIST []
+		READ SUBJECT
+		REPEAT WHILE NOT SUBJECT EQULAS "DONE"
+			SET SUBJECT TO TIRM SUBJECT
+			IF SET CONTAINS ENROLLED SUBJECT THEN
+				DISPLAY "The subject is enrolled" + SUBJECT
+			ELSE IF NOT MAP CONTAINS KEY CAPACITY SUBJECT THEN
+				DISPLAY "The subject is not enrolled"
+			ELSE IF GET FROM MAP CAPACITY SUBJECT EQUALS 0 THEN
+				DISPLAY "There is no seat remain for" + SUBJECT
+			ELSE
+				ADD SUBJECT TO SET ENROLLED 
+				ADD SUBJECT TO LIST LOG
+				SET MAP CAPACITY SUBJECT TO (GET FROM MAP  CAPACITY SUBJECT ) - 1
+				DISPLAY "Enrolled in" + SUBJECT
+			END IF
+			READ SUBJECT
+		END REPEAT
+		DISPLAY "The total subjects enrolled:+ SIZE OF LOG
+	END 
+STOP
