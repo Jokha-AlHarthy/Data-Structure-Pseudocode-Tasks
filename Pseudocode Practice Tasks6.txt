@@ -189,10 +189,11 @@ STOP
 Task 192: Lowercase First Character of String 
 START
 	BEGIN
-		SET inputStr TO "" 
+			DISPLAY "Enter a sentence" 
+    		READ sentence 
+			SET sentence TO "" 
     		SET result TO "" 
-    		DISPLAY "Enter a string:" 
-    		READ inputStr 
+    		
     		IF LENGTH OF sentence GREATER THAN 0 THEN 
         		SET first TO CHARACTER AT sentence INDEX 1 
         		IF IS LETTER first THEN 
