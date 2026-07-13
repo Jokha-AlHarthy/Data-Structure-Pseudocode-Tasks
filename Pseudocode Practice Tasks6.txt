@@ -145,3 +145,22 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 190: Find Middle Character 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET len TO 0
+		SET len TO LENGTH OF sentence
+		IF len MOD 2 EQUALS 1 THEN
+			SET mid TO (len / 2 )+1
+			DISPLAY CHARACTER AT sentence INDEX mid
+		ELSE 
+			SET mid1 TO len / 2
+			SET mid2 TO mid1+1
+			DISPLAY  CHARCTER AT sentence INDEX mid1 + CHARACTER AT sentence INDEX mid2
+		END IF
+	END
+STOP
