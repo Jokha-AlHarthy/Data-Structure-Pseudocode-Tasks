@@ -313,3 +313,44 @@ START
 
     END
 STOP
+--------------------------------------------------------------------------------
+Category 3: Security & Access Control — Solutions 
+
+Task 211: Login System with Lockout
+START
+    BEGIN
+        SET USER_DB TO MAP["admin" TO "Admin@99","sara" TO "Sara#25"]
+        SET FAILS TO LIST[]
+        CREATE SET LOCKED
+        SET AUDIT TO LIST[]
+        REPEAT FROM I EQAULS 1 TO 3
+            DISPLAY "Enter username"
+            READ USERNAME
+            DISPLAY "Enter password"
+            READ PASSWORD
+            SET USERNAME TO LOWERCASE(TRIM USERNAME)
+            IF SET CONTAINS LOCKED USERNAME THEN
+                DISPLAY "Account is locked"
+            ELSE IF NOT MAP CONTAINS KEY USER_DB USERNAME THEN
+                DISPLAY "Username not found"
+            ELSE IF GET FROM MAP USER_DB USERNAME EQUALS PASSWORD THEN
+                DISPLAY "Login successful"
+                ADD USERNAME TO LIST AUDIT
+            ELSE
+                IF NOT MAP CONTAINS KEY FAILS USERNAME THEN
+                    SET MAP FAILS USERNAME TO 1
+                ELSE
+                    SET MAP FAILS USERNAME TO GET FROM MAP FAILS USERNAME + 1
+                END IF
+                IF GET FROM MAP FAILS USERNAME GREATER THAN OR EQUAL TO 3 THEN
+                    ADD USERNAME TO SET LOCKED
+                    DISPLAY "Account locked"
+                ELSE
+                    DISPLAY "Wrong password"
+                END IF
+                ADD USERNAME TO LIST AUDIT
+            END IF
+        END REPEAT
+        DISPLAY "The audit records size is" + SIZE OF AUDIT
+    END
+STOP
