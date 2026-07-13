@@ -327,6 +327,7 @@ START
 		READ number
 		SET sentence TO ""
 		SET number TO 0
+		SET len TO 0
 		SET rotated TO ""
 		SET len TO LENGTH OF sentence
 		SET part1 TO sentence FROM INDEX number+1 TO len
