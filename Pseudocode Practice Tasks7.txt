@@ -107,3 +107,31 @@ START
         DISPLAY "Unique borrowers is " + SET SIZE OF BORROWERS
     END
 STOP
+-------------------------------------------------------------------------------------
+Task 205: Hotel Room Booking Validator
+
+START
+    BEGIN
+        SET ROOMS TO MAP["101" TO "AVAILABLE","102" TO "BOOKED","103" TO "AVAILABLE"]
+        CREATE SET VIP_ROOMS
+        ADD "101" TO SET VIP_ROOMS
+        DISPLAY "Enter guest name"
+        READ GUEST
+        DISPLAY "Enter room number"
+        READ ROOM
+        DISPLAY "Enter membership"
+        READ MEMBERSHIP
+        SET GUEST TO (TRIM GUEST)
+        IF NOT MAP CONTAINS KEY ROOMS ROOM THEN
+            DISPLAY "Room does not exist"
+        ELSE IF GET FROM MAP ROOMS ROOM EQUALS "BOOKED" THEN
+            DISPLAY "Room is already booked"
+        ELSE IF SET CONTAINS VIP_ROOMS ROOM AND MEMBERSHIP NOT EQUALS "VIP" THEN
+            DISPLAY "VIP membership required"
+        ELSE
+            SET MAP ROOMS ROOM TO "BOOKED"
+            DISPLAY "Room booked successfully"
+        END IF
+
+    END
+STOP
