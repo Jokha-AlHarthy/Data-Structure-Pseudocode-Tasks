@@ -207,3 +207,22 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 193: Count Occurrences of Substring 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		DISPLAY "Enter a substring"
+		READ substring
+		SET sentence TO""
+		SET substring TO ""
+		SET position TO 0
+		SET position TO FIRST INDEX OF substring IN sentence
+		REPEAT WHILE position NOT EQULAS TO0
+			SET count TO count+1
+			SET position TO FIRST INDEX OF substring IN sentence FROM INDEX position + 1
+		END REPEAT
+		DISPLAY count 
+	END
+STOP
