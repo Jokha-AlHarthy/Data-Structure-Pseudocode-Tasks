@@ -170,4 +170,37 @@ START
         DISPLAY "The total is" + TOTAL
     END
 STOP
+--------------------------------------------------------------------------------
+Task 207: Employee Payroll Calculator 
 
+START
+    BEGIN
+
+        SET RATES TO MAP ["Engineering" TO 50, "Marketing" TO 40, "Support" TO 30]
+        CREATE SET PAID_IDS
+        SET GRAND_TOTAL TO 0
+        REPEAT FROM I EQULAS 1 TO 4 
+            DISPLAY "Enter employee ID"
+            READ EMP_ID
+            DISPLAY "Enter employee name"
+            READ NAME
+            DISPLAY "Enter department"
+            READ DEPARTMENT
+            DISPLAY "Enter hours worked"
+            READ HOURS
+            SET NAME TO (TRIM NAME)
+            IF SET CONTAINS PAID_IDS EMP_ID THEN
+                DISPLAY "Employee already paid"
+            ELSE IF NOT MAP CONTAINS KEY RATES DEPARTMENT THEN
+                DISPLAY "Department not found"
+            ELSE
+                SET GROSS TO HOURS * GET FROM MAP RATES DEPARTMENT
+                SET NET TO GROSS - (GROSS * 0.15)
+                ADD EMP_ID TO SET PAID_IDS
+                SET GRAND_TOTAL TO GRAND_TOTAL + NET
+                DISPLAY "Net Pay = " + NET
+            END IF
+        END REPEAT
+        DISPLAY "The total Payroll = " + GRAND_TOTAL
+    END
+STOP
