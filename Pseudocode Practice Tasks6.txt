@@ -15,4 +15,20 @@ START
 		
 	END
 STOP
-
+------------------------------------------------------
+Task 183: Extract All Lowercase Letters 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		REPEAT FROM I EQUALS TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF IS LOWERCASE char THEN
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END
+STOP
