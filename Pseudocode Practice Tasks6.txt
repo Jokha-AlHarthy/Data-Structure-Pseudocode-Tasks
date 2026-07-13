@@ -266,3 +266,29 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 196: Count Frequency of Each Character 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET order TO LIST[]
+		CREATE MAP freq
+		REPEAT FROM I EQULAS 1 TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF MAP CONTAINS KEY freq char THEN
+				SET MAP freq char TO GET FROM MAP freq char + 1
+			ELSE
+				SET MAP freq TO 1
+				ADD char TO order
+			END IF
+		END REPEAT
+		
+		
+		REPEAT FROM I EQULAS 1 TO SIZE OF order 
+        		SET char TO order[I] 
+       			DISPLAY char + ":" + GET FROM MAP freq char 
+    		END REPEAT
+	END
+STOP
