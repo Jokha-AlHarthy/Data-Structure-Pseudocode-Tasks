@@ -292,3 +292,28 @@ START
     		END REPEAT
 	END
 STOP
+------------------------------------------------------
+Task 197: Check if Two Strings are Anagrams 
+START
+	BEGIN
+    		DISPLAY "Enter first sentence"
+    		READ sentence1
+    		DISPLAY "Enter second sentence"
+    		READ sentence2
+    		SET sentence1 TO LOWERCASE(sentence1)
+    		SET sentence2 TO LOWERCASE(sentence2)
+   		REMOVE ALL SPACES FROM sentence1
+    		REMOVE ALL SPACES FROM sentence2
+    		IF LENGTH OF sentence1 NOT EQUALS TO LENGTH sentence2 THEN
+        		DISPLAY "Not anagrams"
+    		ELSE
+        		SORT sentence1
+        		SORT sentence2
+        		IF sentence1 = sentence2 THEN
+            			DISPLAY "Anagrams"
+        		ELSE
+            			DISPLAY "Not anagrams"
+        		END IF
+    		END IF
+	END
+STOP
