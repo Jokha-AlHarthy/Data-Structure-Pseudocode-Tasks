@@ -226,3 +226,24 @@ START
 		DISPLAY count 
 	END
 STOP
+------------------------------------------------------
+Task 194: Check if String Contains Only Digits 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET onlyDigits TO TRUE
+		REPEAT FROM I EQULAS 1 TO LENGTH OF sentence 
+			SET char TO CHARACTER AT sentence INDEX I
+			IF NOT IS DIGIT char THEN
+				SET onlyDigits TO FALSE
+			END IF
+		END REPEAT
+		IF onlyDigits EQULAS TRUE THEN
+			DISPLAY "Only digits"
+		ELSE
+			DISPLAY "Contains non-digits"
+		END IF
+	END
+STOP
