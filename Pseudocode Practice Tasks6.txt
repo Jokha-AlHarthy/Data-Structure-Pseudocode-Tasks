@@ -58,7 +58,6 @@ START
 		DISPLAY "Enter a sentence"
 		READ sentence
 		SET sentence TO ""
-		SET result TO ""
 		SET onlyUpper TO TRUE
 		REPEAT FROM I EQUALS TO LENGTH OF sentence
 			SET char TO CHARACTER AT sentence INDEX I
@@ -71,5 +70,27 @@ START
 		ELSE
 			DISPLAY "Not all uppercase letters"
 		END IF
+	END
+STOP
+------------------------------------------------------
+Task 187: Insert Space After Every Character 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET onlyLower TO TRUE
+		REPEAT FROM I EQUALS TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF NOT(char GRATER THAN OR EQUAL TO "a" AND char LESS THAN OR EQUAL TO "z") THEN
+				SET onlyLower TO FLASE
+			END IF
+		END REPEAT
+		IF onlyLower EQUALS TURE THEN
+			DISPLAY "All lowercase letters"
+		ELSE
+			DISPLAY "Not all lowercase letters"
+		END IF
+
 	END
 STOP
