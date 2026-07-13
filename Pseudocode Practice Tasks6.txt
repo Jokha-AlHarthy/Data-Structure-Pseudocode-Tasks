@@ -32,3 +32,22 @@ START
 		DISPLAY result
 	END
 STOP
+------------------------------------------------------
+Task 184: Replace All Digits with '#' 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		REPEAT FROM I EQUALS TO LENGTH OF sentence
+			SET char TO CHARACTER AT sentence INDEX I
+			IF IS DIGIT char THEN
+				SET result TO result + "#"
+			ELSE 
+				SET result TO result + char
+			END IF
+		END REPEAT
+		DISPLAY result
+	END
+STOP
