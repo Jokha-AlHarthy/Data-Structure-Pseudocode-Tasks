@@ -354,3 +354,45 @@ START
         DISPLAY "The audit records size is" + SIZE OF AUDIT
     END
 STOP
+--------------------------------------------------------------------------------
+Task 212: Comment Spam Filter 
+
+START
+    BEGIN
+
+        SET WARNS TO MAP[]
+        CREATE SET SUSPENDED
+        SET APPROVED TO []
+        REPEAT FROM I EQULAS 1 TO 5
+            DISPLAY "Enter sender"
+            READ SENDER
+            DISPLAY "Enter message"
+            READ MESSAGE
+            SET SENDER TO TRIM SENDER
+            SET MESSAGE TO LOWERCASE MESSAGE
+            IF SET CONTAINS SUSPENDED SENDER THEN
+                DISPLAY "User is suspended"
+            ELSE IF MESSAGE CONTAINS "spam" OR MESSAGE CONTAINS "scam" OR MESSAGE CONTAINS "hack" THEN
+                IF NOT MAP CONTAINS KEY WARNS SENDER THEN
+                    SET MAP WARNS SENDER TO 1
+                ELSE
+                    SET MAP WARNS SENDER TO GET FROM MAP WARNS SENDER + 1
+                END IF
+
+                IF GET FROM MAP WARNS SENDER GREATER THAN OR EQUAL TO 2 THEN
+                    ADD SENDER TO SET SUSPENDED
+                    DISPLAY "User suspended"
+                ELSE
+                    DISPLAY "Warning added"
+                END IF
+
+            ELSE
+                ADD MESSAGE TO LIST APPROVED
+                DISPLAY "Message approved"
+            END IF
+        END REPEAT
+        DISPLAY "Approved messages size is" + SIZE OF APPROVED
+        DISPLAY "Suspended users size" + SET SIZE OF SUSPENDED
+    END
+STOP
+
