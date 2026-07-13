@@ -164,3 +164,21 @@ START
 		END IF
 	END
 STOP
+------------------------------------------------------
+Task 191: Capitalize First Character of String 
+START
+	BEGIN
+		DISPLAY "Enter a sentence"
+		READ sentence
+		SET sentence TO ""
+		SET result TO ""
+		IF LENGTH OF sentence GREATER THAN 0 TEHN
+			SET first TO CHARCTER AT sentence INDEX 1
+			SET rest TO sentence FROM INDEX 2 TO LENGTH OF sentence
+			SET result TO first + first
+		ELSE 
+			SET result TO sentence
+		END IF
+		DISPLAY result
+	END
+STOP
