@@ -396,3 +396,34 @@ START
     END
 STOP
 
+--------------------------------------------------------------------------------
+Task 213: Event Check-In System
+START
+    BEGIN
+
+        SET ROLES TO MAP["EMP001" TO "Engineer","EMP002" TO "Manager"]
+        CREATE SET RESTRICTED
+        ADD "Server Room" TO SET RESTRICTED
+        CREATE SET MANAGERS
+        ADD "EMP002" TO SET MANAGERS
+        SET LOG TO LIST []
+        REPEAT FROM I EQUALS 1 TO 4
+            DISPLAY "Enter staff ID"
+            READ STAFF_ID
+            DISPLAY "Enter zone"
+            READ ZONE
+            SET STAFF_ID TO TRIM STAFF_ID
+            SET ZONE TO TRIM ZONE
+            IF NOT MAP CONTAINS KEY ROLES STAFF_ID THEN
+                DISPLAY "Invalid staff ID"
+            ELSE IF SET CONTAINS RESTRICTED ZONE AND NOT SET CONTAINS MANAGERS STAFF_ID THEN
+                DISPLAY "Access denied"
+                ADD STAFF_ID TO LIST LOG
+            ELSE
+                DISPLAY "Access granted"
+                ADD STAFF_ID TO LIST LOG
+            END IF
+        END REPEAT
+        DISPLAY "The total size of log entries is" + SIZE OF LOG
+    END
+STOP
