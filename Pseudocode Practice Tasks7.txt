@@ -427,3 +427,38 @@ START
         DISPLAY "The total size of log entries is" + SIZE OF LOG
     END
 STOP
+--------------------------------------------------------------------------------
+Task 214: Event Check-In System
+START
+    BEGIN
+
+        CREATE SET ALLOWED
+        ADD "192.168.1.1" TO SET ALLOWED
+        SET DENIALS TO MAP []
+        SET LOG TO LIST[]
+        DISPLAY "Enter IP"
+        READ IP
+        REPEAT WHILE IP NOT EQUALS "EXIT"
+            SET IP TO TRIM IP 
+            IF LENGTH OF IP LESS THAN 7 THEN
+                DISPLAY "Invalid IP"+IP
+            ELSE IF LENGTH OF IP GREATER THAN 15 THEN
+                DISPLAY "Invalid IP"+IP
+            ELSE IF SET CONTAINS ALLOWED IP THEN
+                DISPLAY "Access granted"+IP
+                ADD IP TO LIST LOG
+            ELSE
+                IF NOT MAP CONTAINS KEY DENIALS IP THEN
+                    SET MAP DENIALS IP TO 1
+                ELSE
+                    SET MAP DENIALS IP TO GET FROM MAP DENIALS IP + 1
+                END IF
+                DISPLAY "Access denied"
+                ADD IP TO LIST LOG
+            END IF
+            DISPLAY "Enter IP"
+            READ IP
+        END REPEAT
+        DISPLAY "The total access attempts is " + SIZE OF LOG
+    END
+STOP
