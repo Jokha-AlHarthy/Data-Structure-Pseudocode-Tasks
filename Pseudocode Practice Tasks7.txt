@@ -397,7 +397,7 @@ START
 STOP
 
 --------------------------------------------------------------------------------
-Task 213: Event Check-In System
+Task 213: Staff ID Zone Access Gate 
 START
     BEGIN
 
@@ -428,7 +428,7 @@ START
     END
 STOP
 --------------------------------------------------------------------------------
-Task 214: Event Check-In System
+Task 214: Network IP Access Controller 
 START
     BEGIN
 
@@ -462,3 +462,31 @@ START
         DISPLAY "The total access attempts is " + SIZE OF LOG
     END
 STOP
+--------------------------------------------------------------------------------
+Task 215: Exam Seat Allocation System
+
+START
+    BEGIN
+        SET RECORDS TO MAP["S001" TO 78, "S002" TO 45,"S003" TO 91, "S004" TO 60]
+        CREATE SET ELIGIBLE
+        CREATE SET INELIGIBLE
+        SET SEATS TO LIST []
+        SET SEAT_NO TO 1
+        SET KEYS TO GET ALL KEYS RECORDS
+        REPEAT FROM I EQUALD 1 TO SIZE OF KEYS
+            IF GET FROM MAP RECORDS KEYS[I] GREATER THAN OR EQUAL TO 60 THEN
+                ADD KEYS[I] TO SET ELIGIBLE
+                ADD KEYS[I] TO LIST SEATS
+                DISPLAY KEYS[I] + " Seat " + SEAT_NO
+                SET SEAT_NO TO SEAT_NO + 1
+            ELSE
+                ADD KEYS[I] TO SET INELIGIBLE
+                DISPLAY KEYS[I] + " Not eligible."
+            END IF
+        END REPEAT
+        DISPLAY "The size of eligible is" + SET SIZE OF ELIGIBLE
+        DISPLAY "The size of ineligible is " + SET SIZE OF INELIGIBLE
+
+    END
+STOP
+
