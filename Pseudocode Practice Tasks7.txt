@@ -660,3 +660,41 @@ START
         DISPLAY "The size of failed student is" + SET SIZE OF FAILED
     END
 STOP
+--------------------------------------------------------------------------------
+Task 220: Bus Route Passenger Loader
+
+START
+    BEGIN
+
+        SET CAPACITY TO MAP["ROUTE_A" TO 40, "ROUTE_B" TO 30]
+        SET LOAD TO MAP["ROUTE_A" TO 0, "ROUTE_B" TO 0]
+        CREATE SET OVERLOADED
+        SET LOG TO LIST[]
+        DISPLAY "Enter route"
+        READ ROUTE
+        REPEAT WHILE ROUTE NOT EQUALS "END"
+            DISPLAY "Enter passengers"
+            READ PASSENGERS
+            SET ROUTE TO UPPERCASE(TRIM ROUTE)
+            IF NOT MAP CONTAINS KEY CAPACITY ROUTE THEN
+                DISPLAY "Route not found"
+            ELSE IF PASSENGERS LESS THAN OR EQUAL TO 0 THEN
+                DISPLAY "Invalid number"
+            ELSE
+                SET NEW_LOAD TO GET FROM MAP LOAD ROUTE + PASSENGERS
+                IF NEW_LOAD GREATER THAN GET FROM MAP CAPACITY ROUTE THEN
+                    ADD ROUTE TO SET OVERLOADED
+                    DISPLAY "Route overloaded"
+                ELSE
+                    SET MAP LOAD ROUTE TO NEW_LOAD
+                    ADD ROUTE TO LIST LOG
+                    DISPLAY "Passengers added"
+                END IF
+            END IF
+            DISPLAY "Enter route"
+            READ ROUTE
+        END REPEAT
+        DISPLAY "The size of boarding events is" + SIZE OF LOG
+        DISPLAY "The size of overloaded routes is" + SET SIZE OF OVERLOADED
+    END
+STOP
