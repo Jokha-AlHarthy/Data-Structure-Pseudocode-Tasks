@@ -698,3 +698,47 @@ START
         DISPLAY "The size of overloaded routes is" + SET SIZE OF OVERLOADED
     END
 STOP
+--------------------------------------------------------------------------------
+
+Category 5: Capstone Integration Tasks — Solutions 
+
+Task 221: Online Order Fulfilment System
+
+START
+    BEGIN
+
+        SET CATALOG TO MAP["Phone" TO 400, "Laptop" TO 900, "Watch" TO 250]
+        SET STOCK TO MAP["Phone" TO 5, "Laptop" TO 2, "Watch" TO 8]
+        CREATE SET REFS
+        SET LOG TO LIST[]
+        SET REVENUE TO 0
+        SET OID TO 1001
+        DISPLAY "Enter customer name"
+        READ CUSTOMER
+        REPEAT WHILE CUSTOMER NOT EQUALS "CLOSE"
+            DISPLAY "Enter product"
+            READ PRODUCT
+            SET CUSTOMER TO TRIM CUSTOMER
+            SET PRODUCT TO TRIM PRODUCT
+            IF LENGTH OF CUSTOMER LESS THAN 2 THEN
+                DISPLAY "Invalid customer name"
+            ELSE IF NOT MAP CONTAINS KEY CATALOG PRODUCT THEN
+                DISPLAY "Product not found"
+            ELSE IF GET FROM MAP STOCK PRODUCT EQUALS 0 THEN
+                DISPLAY "Out of stock"
+            ELSE
+                SET REF TO "ORD" + OID
+                ADD REF TO SET REFS
+                ADD REF TO LIST LOG
+                SET MAP STOCK PRODUCT TO GET FROM MAP STOCK PRODUCT - 1
+                SET REVENUE TO REVENUE + GET FROM MAP CATALOG PRODUCT
+                SET OID TO OID + 1
+                DISPLAY "Order completed."
+            END IF
+            DISPLAY "Enter customer name:"
+            READ CUSTOMER
+        END REPEAT
+        DISPLAY "The total revenue is " + REVENUE
+        DISPLAY "The size of orders is" + SIZE OF LOG
+    END
+STOP
