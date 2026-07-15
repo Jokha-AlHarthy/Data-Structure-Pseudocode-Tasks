@@ -789,4 +789,44 @@ START
         DISPLAY "The size of the alerts is" + SIZE OF ALERTS
     END
 STOP
+--------------------------------------------------------------------------------
 
+Task 223: Course Prerequisite Enrolment Check 
+
+START
+    BEGIN
+
+        SET PREREQS TO MAP["CS301" TO "CS101", "CS401" TO "CS301"]
+        SET NAMES TO MAP["CS101" TO "Intro Programming", "CS301" TO "Data Structures", "CS401" TO "Algorithms"]
+        CREATE SET COMPLETED
+        SET RESULTS TO LIST[]
+        DISPLAY "Enter completed courses"
+        READ N
+        REPEAT FROM I EQUALS 1 TO N
+            READ COURSE
+            SET COURSE TO UPPERCASE(TRIM COURSE)
+            IF MAP CONTAINS KEY NAMES COURSE THEN
+                ADD COURSE TO SET COMPLETED
+            END IF
+        END REPEAT
+        DISPLAY "Enter courses to apply"
+        READ M
+        REPEAT FROM I EQUALS 1 TO M
+            READ COURSE
+            SET COURSE TO UPPERCASE(TRIM COURSE)
+            IF NOT MAP CONTAINS KEY NAMES COURSE THEN
+                DISPLAY "Course not found"
+            ELSE IF NOT MAP CONTAINS KEY PREREQS COURSE THEN
+                ADD COURSE TO LIST RESULTS
+                DISPLAY "Enrolment approved"
+            ELSE IF SET CONTAINS COMPLETED GET FROM MAP PREREQS COURSE THEN
+                ADD COURSE TO LIST RESULTS
+                DISPLAY "Enrolment approved"
+            ELSE
+                ADD COURSE TO LIST RESULTS
+                DISPLAY "Prerequisite not completed"
+            END IF
+        END REPEAT
+        DISPLAY "The result size is" + SIZE OF RESULTS
+    END
+STOP
