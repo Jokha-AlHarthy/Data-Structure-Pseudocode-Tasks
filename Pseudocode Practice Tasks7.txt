@@ -611,3 +611,52 @@ START
         DISPLAY "The size of critical patients is" + SET SIZE OF CRITICAL
     END
 STOP
+--------------------------------------------------------------------------------
+Task 219: Student Grade Report Builder 
+
+START
+    BEGIN
+
+        SET GRADES TO MAP[]
+        CREATE SET HONOUR_ROLL
+        CREATE SET FAILED
+        SET REPORT TO LIST[]
+        SET TOTAL TO 0
+        SET COUNT TO 0
+        DISPLAY "Enter student name"
+        READ NAME
+        REPEAT WHILE NAME NOT EQUALS "END"
+            DISPLAY "Enter score"
+            READ SCORE
+            SET NAME TO TRIM NAME
+            IF SCORE LESS THAN 0 OR SCORE GREATER THAN 100 THEN
+                DISPLAY "Invalid score"
+            ELSE IF MAP CONTAINS KEY GRADES NAME THEN
+                DISPLAY "Student already exists"
+            ELSE
+                SET MAP GRADES NAME TO SCORE
+                SET TOTAL TO TOTAL + SCORE
+                SET COUNT TO COUNT + 1
+                IF SCORE GREATER THAN OR EQUAL TO 90 THEN
+                    SET GRADE TO "A"
+                    ADD NAME TO SET HONOUR_ROLL
+                ELSE IF SCORE GREATER THAN OR EQUAL TO 75 THEN
+                    SET GRADE TO "B"
+                ELSE IF SCORE GREATER THAN OR EQUAL TO 60 THEN
+                    SET GRADE TO "C"
+                ELSE
+                    SET GRADE TO "F"
+                    ADD NAME TO SET FAILED
+                END IF
+                ADD NAME TO LIST REPORT
+                DISPLAY "Grade" + GRADE
+            END IF
+            DISPLAY "Enter student name"
+            READ NAME
+        END REPEAT
+
+        DISPLAY "Average" + TOTAL / COUNT
+        DISPLAY "The size of honour roll is" + SET SIZE OF HONOUR_ROLL
+        DISPLAY "The size of failed student is" + SET SIZE OF FAILED
+    END
+STOP
