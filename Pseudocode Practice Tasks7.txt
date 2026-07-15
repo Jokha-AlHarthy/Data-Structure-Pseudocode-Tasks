@@ -564,5 +564,50 @@ START
         DISPLAY "The size of the passengers boarded is" + SET SIZE OF BOARDED
     END
 STOP
+--------------------------------------------------------------------------------
+Task 218: Hospital Patient Triage 
 
+START
+    BEGIN
 
+        SET CAPACITY TO MAP["ICU" TO 5, "General" TO 20, "Pediatric" TO 10]
+        CREATE SET CRITICAL
+        SET ADMISSIONS TO LIST[]
+        SET COUNT TO 0
+        REPEAT FROM I EQUALS 1 TO 5
+            DISPLAY "Enter patient name"
+            READ NAME
+            DISPLAY "Enter severity"
+            READ SEVERITY
+            DISPLAY "Enter age"
+            READ AGE
+            SET NAME TO TRIM NAME
+            IF SEVERITY LESS THAN 1 OR SEVERITY GREATER THAN 10 THEN
+                DISPLAY "Invalid severity"
+            ELSE
+                IF SEVERITY GREATER THAN OR EQUAL TO 8 THEN
+                    SET WARD TO "ICU"
+                ELSE IF AGE LESS THAN 5 AND SEVERITY GREATER THAN OR EQUAL TO 5 THEN
+                    SET WARD TO "ICU"
+                ELSE IF AGE LESS THAN 16 THEN
+                    SET WARD TO "Pediatric"
+                ELSE
+                    SET WARD TO "General"
+                END IF
+                IF GET FROM MAP CAPACITY WARD EQUALS 0 THEN
+                    DISPLAY "No beds available"
+                ELSE
+                    SET MAP CAPACITY WARD TO GET FROM MAP CAPACITY WARD - 1
+                    ADD NAME TO LIST ADMISSIONS
+                    SET COUNT TO COUNT + 1
+                    IF SEVERITY GREATER THAN OR EQUAL TO 8 THEN
+                        ADD NAME TO SET CRITICAL
+                    END IF
+                    DISPLAY "Patient admitted"
+                END IF
+            END IF
+        END REPEAT
+        DISPLAY "Patients Admitted" + COUNT
+        DISPLAY "The size of critical patients is" + SET SIZE OF CRITICAL
+    END
+STOP
