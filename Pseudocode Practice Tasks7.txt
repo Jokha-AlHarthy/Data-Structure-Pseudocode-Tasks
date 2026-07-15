@@ -742,3 +742,51 @@ START
         DISPLAY "The size of orders is" + SIZE OF LOG
     END
 STOP
+--------------------------------------------------------------------------------
+
+Task 222: Smart Home Device Control Hub 
+
+START
+    BEGIN
+
+        SET DEVICES TO MAP["Camera" TO "ONLINE", "Lock" TO "ONLINE", "Lights" TO "OFFLINE"]
+        CREATE SET CRITICAL
+        ADD "Camera" TO SET CRITICAL
+        ADD "Lock" TO SET CRITICAL
+        SET CMD_COUNT TO EMPTY MAP
+        SET ALERTS TO LIST[]
+        DISPLAY "Enter device"
+        READ DEVICE
+        REPEAT WHILE DEVICE NOT EQUALS "EXIT"
+            DISPLAY "Enter command:"
+            READ COMMAND
+            SET DEVICE TO TRIM DEVICE
+            SET COMMAND TO UPPERCASE COMMAND
+            IF NOT MAP CONTAINS KEY DEVICES DEVICE THEN
+                DISPLAY "Device not found"
+            ELSE IF NOT COMMAND EQUALS "ON" AND NOT COMMAND EQUALS "OFF" THEN
+                DISPLAY "Invalid command"
+            ELSE IF SET CONTAINS CRITICAL DEVICE AND COMMAND EQUALS "OFF" THEN
+                ADD DEVICE TO LIST ALERTS
+                DISPLAY "Cannot turn off critical device"
+            ELSE
+                IF COMMAND EQUALS "ON" THEN
+                    SET MAP DEVICES DEVICE TO "ONLINE"
+                ELSE
+                    SET MAP DEVICES DEVICE TO "OFFLINE"
+                END IF
+
+                IF NOT MAP CONTAINS KEY CMD_COUNT DEVICE THEN
+                    SET MAP CMD_COUNT DEVICE TO 1
+                ELSE
+                    SET MAP CMD_COUNT DEVICE TO GET FROM MAP CMD_COUNT DEVICE + 1
+                END IF
+                DISPLAY "Command completed"
+            END IF
+            DISPLAY "Enter device"
+            READ DEVICE
+        END REPEAT
+        DISPLAY "The size of the alerts is" + SIZE OF ALERTS
+    END
+STOP
+
