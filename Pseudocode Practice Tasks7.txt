@@ -830,3 +830,51 @@ START
         DISPLAY "The result size is" + SIZE OF RESULTS
     END
 STOP
+
+Task 224: Ride-Share Driver Matching System 
+
+START
+    BEGIN
+
+        SET STATUS TO MAP["D001" TO "AVAILABLE", "D002" TO "BUSY", "D003" TO "AVAILABLE"]
+        SET RATINGS TO MAP["D001" TO 4.8, "D002" TO 3.9, "D003" TO 4.5]
+        CREATE SET TRIPS
+        SET LOG TO LIST[]
+        SET REVENUE TO 0
+        DISPLAY "Enter rider"
+        READ RIDER
+        REPEAT WHILE RIDER NOT EQUALS "STOP"
+            DISPLAY "Enter distance"
+            READ DISTANCE
+            SET RIDER TO TRIM RIDER
+            IF DISTANCE LESS THAN OR EQUAL TO 0 THEN
+                DISPLAY "Invalid distance"
+            ELSE
+                SET DRIVER TO ""
+                SET KEYS TO GET ALL KEYS STATUS
+                REPEAT FROM I EQAULS 1 TO SIZE OF KEYS
+                    IF GET FROM MAP STATUS KEYS[I] EQUALS "AVAILABLE" AND GET FROM MAP RATINGS KEYS[I] GREATER THAN OR EQUAL TO 4.0 THEN
+                        SET DRIVER TO KEYS[I]
+                    END IF
+                END REPEAT
+                IF DRIVER EQUALS "" THEN
+                    DISPLAY "No driver available"
+                ELSE
+                    SET FARE TO DISTANCE * 1.5
+                    IF DISTANCE GREATER THAN 20 THEN
+                        SET FARE TO FARE * 0.9
+                    END IF
+                    SET MAP STATUS DRIVER TO "BUSY"
+                    SET REVENUE TO REVENUE + FARE
+                    ADD RIDER TO SET TRIPS
+                    ADD RIDER TO LIST LOG
+                    DISPLAY "Driver assigned"
+                END IF
+            END IF
+            DISPLAY "Enter rider"
+            READ RIDER
+        END REPEAT
+        DISPLAY "Revenue" + REVENUE
+        DISPLAY "The size of trips is " + SIZE OF LOG
+    END
+STOP
