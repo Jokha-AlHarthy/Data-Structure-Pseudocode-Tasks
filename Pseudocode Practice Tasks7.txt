@@ -489,4 +489,42 @@ START
 
     END
 STOP
+--------------------------------------------------------------------------------
+Category 4: Inventory & Logistics Systems — Solutions 
+
+Task 216: Warehouse Dispatch Manager
+
+START
+    BEGIN
+        SET STOCK TO MAP["Apples" TO 100,"Bananas" TO 0]
+        CREATE SET RESTOCK
+        SET LOG TO LIST []
+        DISPLAY "Enter item"
+        READ ITEM
+        REPEAT WHILE ITEM NOT EQUALS "CLOSE"
+            DISPLAY "Enter quantity"
+            READ QUANTITY
+            SET ITEM TO TRIM ITEM
+            IF NOT MAP CONTAINS KEY STOCK ITEM THEN
+                DISPLAY "Item not found"
+            ELSE IF QUANTITY LESS THAN OR EQUAL TO 0 THEN
+                DISPLAY "Invalid quantity"
+            ELSE IF GET FROM MAP STOCK ITEM EQUALS 0 THEN
+                ADD ITEM TO SET RESTOCK
+                DISPLAY "Item out of stock"
+            ELSE IF QUANTITY GREATER THAN GET FROM MAP STOCK ITEM THEN
+                DISPLAY "Not enough stock"
+            ELSE
+                SET MAP STOCK ITEM TO GET FROM MAP STOCK ITEM - QUANTITY
+                ADD ITEM TO LIST LOG
+                DISPLAY "Dispatch successful"
+            END IF
+            DISPLAY "Enter item"
+            READ ITEM
+        END REPEAT
+        DISPLAY "The size of dispatches is" + SIZE OF LOG
+        DISPLAY "The size of restock items" + SET SIZE OF RESTOCK
+    END
+STOP
+
 
