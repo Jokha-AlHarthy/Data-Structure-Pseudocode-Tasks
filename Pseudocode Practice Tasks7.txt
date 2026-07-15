@@ -527,4 +527,42 @@ START
     END
 STOP
 
+--------------------------------------------------------------------------------
+Task 217: Airline Seat Boarding System
+
+START
+    BEGIN
+        SET SEATS TO MAP["1A" TO "EMPTY", "1B" TO "EMPTY"]
+        SET MEALS TO MAP[]
+        CREATE SET BOARDED
+        SET MANIFEST TO LIST[]
+        DISPLAY "Enter passenger name"
+        READ NAME
+        REPEAT WHILE NAME NOT EQUALS "DONE"
+            DISPLAY "Enter seat"
+            READ SEAT
+            DISPLAY "Enter meal"
+            READ MEAL
+            SET NAME TO TRIM NAME
+            SET MEAL TO UPPERCASE MEAL
+            IF NOT MAP CONTAINS KEY SEATS SEAT THEN
+                DISPLAY "Seat not found"
+            ELSE IF NOT GET FROM MAP SEATS SEAT EQUALS "EMPTY" THEN
+                DISPLAY "Seat already taken"
+            ELSE IF NOT MEAL EQUALS "VEG" AND NOT MEAL EQUALS "NON-VEG" THEN
+                DISPLAY "Invalid meal"
+            ELSE
+                SET MAP SEATS SEAT TO NAME
+                SET MAP MEALS NAME TO MEAL
+                ADD NAME TO SET BOARDED
+                ADD NAME TO LIST MANIFEST
+                DISPLAY "Passenger boarded"
+            END IF
+            DISPLAY "Enter passenger name"
+            READ NAME
+        END REPEAT
+        DISPLAY "The size of the passengers boarded is" + SET SIZE OF BOARDED
+    END
+STOP
+
 
